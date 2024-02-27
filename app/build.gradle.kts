@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
 }
 
@@ -70,8 +69,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Dependency Injection - Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.android.compiler)
+    implementation(libs.koin.androidx.compose)
 
     // Database - Room
     implementation(libs.androidx.room.runtime)
