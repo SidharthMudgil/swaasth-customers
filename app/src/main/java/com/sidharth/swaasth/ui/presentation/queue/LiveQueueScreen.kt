@@ -11,11 +11,13 @@ fun LiveQueueScreen() {
     Column {
         DoctorCard()
         Text(text = "In Clinic Patient")
+        PatientList(inClinic = false, patients = listOf("Rajeev", "Alok", "Rajveer", "Aditya"))
         Text(text = "Out Clinic Patient")
+        PatientList(inClinic = true, patients = listOf("Sameer", "Karan", "Aditya", "Suraj", "Balu"))
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun LiveQueueScreenPreview() {
     LiveQueueScreen()

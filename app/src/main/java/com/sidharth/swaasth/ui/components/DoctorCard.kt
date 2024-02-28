@@ -41,7 +41,7 @@ fun DoctorCard() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun DoctorCardPreview() {
     DoctorCard()
