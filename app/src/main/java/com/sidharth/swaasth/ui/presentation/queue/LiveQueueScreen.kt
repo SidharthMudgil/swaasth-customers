@@ -10,6 +10,7 @@ import com.sidharth.swaasth.ui.components.DoctorCard
 fun LiveQueueScreen() {
     Column {
         DoctorCard()
+        StatusCard()
         Text(text = "In Clinic Patient")
         PatientList(inClinic = false, patients = listOf("Rajeev", "Alok", "Rajveer", "Aditya"))
         Text(text = "Out Clinic Patient")
