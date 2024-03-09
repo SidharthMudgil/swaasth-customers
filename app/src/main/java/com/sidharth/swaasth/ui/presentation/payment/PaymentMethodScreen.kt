@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun PaymentMethodScreen() {
@@ -38,13 +39,8 @@ fun PaymentMethodScreen() {
     }
 }
 
+@Preview(showBackground = true)
 @Composable
-fun PaymentMethodCard(
-    title: String,
-    selected: Boolean
-) {
-    Card {
-        Text(text = "Online")
-        RadioButton(selected = selected, onClick = {})
-    }
+private fun PaymentMethodScreenPreview() {
+    PaymentMethodScreen()
 }

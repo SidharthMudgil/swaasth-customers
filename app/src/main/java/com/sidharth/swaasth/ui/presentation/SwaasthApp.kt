@@ -48,10 +48,14 @@ fun BottomNavigationBar() {
     }
 }
 
-@Preview(
-    showBackground = true,
-)
+@Preview(showBackground = true)
 @Composable
 private fun SwaasthAppPreview() {
     SwaasthApp {}
+}
+
+@Preview
+@Composable
+private fun BottomNavBarPreview() {
+    BottomNavigationBar()
 }

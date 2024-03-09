@@ -18,7 +18,7 @@ fun LiveQueueScreen() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun LiveQueueScreenPreview() {
     LiveQueueScreen()
