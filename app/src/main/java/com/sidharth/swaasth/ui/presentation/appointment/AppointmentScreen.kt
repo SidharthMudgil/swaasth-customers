@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,9 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sidharth.swaasth.ui.components.DoctorCard
+import com.sidharth.swaasth.ui.presentation.queue.PatientCard
+import java.time.LocalDateTime
 
 @Composable
 fun AppointmentScreen() {
+    val timings = listOf("08:00 AM", "08:00 AM", "08:00 AM", "08:00 AM", "08:00 AM", "08:00 AM")
+    val dates = listOf(LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now())
+
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -33,13 +40,17 @@ fun AppointmentScreen() {
             Text(text = "See all")
         }
         LazyRow {
-//        todo create date schedule card
+            items(dates) { date ->
+                DateCard(date)
+            }
         }
         Text(text = "Schedules")
         LazyVerticalGrid(
             columns = GridCells.Adaptive(150.dp)
         ) {
-//        todo create time schedule card
+            items(timings) {time ->
+                TimingCard(time)
+            }
         }
         Card {
             Text(text = "Book appointment")
