@@ -9,7 +9,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,13 +16,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sidharth.swaasth.ui.components.DoctorCard
-import com.sidharth.swaasth.ui.presentation.queue.PatientCard
 import java.time.LocalDateTime
 
 @Composable
 fun AppointmentScreen() {
     val timings = listOf("08:00 AM", "08:00 AM", "08:00 AM", "08:00 AM", "08:00 AM", "08:00 AM")
-    val dates = listOf(LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now())
+    val dates = listOf(
+        LocalDateTime.now(),
+        LocalDateTime.now(),
+        LocalDateTime.now(),
+        LocalDateTime.now(),
+        LocalDateTime.now()
+    )
 
     Column(
         modifier = Modifier
@@ -32,7 +36,7 @@ fun AppointmentScreen() {
     ) {
         Text(text = "Appointment")
         DoctorCard()
-//        todo create the doctor profile card
+        DoctorScoreCard()
         Text(text = "About Doctor")
         Text(text = "Has Extensive Scientific Knowledge: Good dental surgeon should have a wealth of knowledge about teeth and oral hygiene. They are able to quickly identify problems as well as their most effective treatments.")
         Row {
@@ -48,7 +52,7 @@ fun AppointmentScreen() {
         LazyVerticalGrid(
             columns = GridCells.Adaptive(150.dp)
         ) {
-            items(timings) {time ->
+            items(timings) { time ->
                 TimingCard(time)
             }
         }
