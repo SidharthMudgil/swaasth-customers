@@ -36,7 +36,7 @@ fun AppointmentScreen() {
     ) {
         Text(text = "Appointment")
         DoctorCard()
-        DoctorScoreCard()
+        ExperienceCard()
         Text(text = "About Doctor")
         Text(text = "Has Extensive Scientific Knowledge: Good dental surgeon should have a wealth of knowledge about teeth and oral hygiene. They are able to quickly identify problems as well as their most effective treatments.")
         Row {
