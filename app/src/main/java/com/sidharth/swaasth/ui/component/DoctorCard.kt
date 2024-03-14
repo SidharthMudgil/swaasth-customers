@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.components
+package com.sidharth.swaasth.ui.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border

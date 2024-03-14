@@ -30,6 +30,16 @@ fun ExperienceItem(
 
 @Preview
 @Composable
+private fun ExperienceItemPreview() {
+    ExperienceItem(
+        value = 350,
+        label = "Patients",
+        color = Color(255, 0, 0)
+    )
+}
+
+@Preview
+@Composable
 private fun ExperienceCardPreview() {
     ExperienceCard()
 }
