@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.sidharth.swaasth.ui.navigation.NavItem
 import com.sidharth.swaasth.ui.theme.SwaasthTheme
 
 @Composable
@@ -32,15 +33,15 @@ fun SwaasthApp(finishActivity: () -> Unit) {
 
 @Composable
 fun BottomNavigationBar() {
-    val items = listOf("Songs", "Artists", "Playlists")
+    val items = listOf(NavItem.Home, NavItem.LiveQueue, NavItem.Appointments, NavItem.Profile)
     var selectedItem by rememberSaveable { mutableIntStateOf(0) }
 
     NavigationBar {
         items.forEachIndexed { index, item ->
             NavigationBarItem(
                 alwaysShowLabel = true,
-                icon = { Icon(Icons.Filled.Favorite, contentDescription = item) },
-                label = { Text(item) },
+                icon = { Icon(item.icon, contentDescription = item.title) },
+                label = { Text(item.title) },
                 selected = selectedItem == index,
                 onClick = { selectedItem = index }
             )
