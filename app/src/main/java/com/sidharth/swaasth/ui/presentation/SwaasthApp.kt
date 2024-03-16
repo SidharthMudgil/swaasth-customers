@@ -1,8 +1,6 @@
-package com.sidharth.swaasth.ui.composables
+package com.sidharth.swaasth.ui.presentation
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -14,6 +12,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.sidharth.swaasth.ui.navigation.NavItem
 import com.sidharth.swaasth.ui.theme.SwaasthTheme
 
@@ -47,4 +46,12 @@ fun BottomNavigationBar() {
             )
         }
     }
+}
+
+@Preview(
+    showBackground = true,
+)
+@Composable
+private fun SwaasthAppPreview() {
+    SwaasthApp {}
 }
