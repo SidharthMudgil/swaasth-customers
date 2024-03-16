@@ -4,12 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun SpecialityView() {
+fun GreetingsCard() {
 
 }
 
 @Preview
 @Composable
-private fun SpecialityViewPreview() {
-
+private fun  GreetingsCardPreview() {
+    GreetingsCard()
 }

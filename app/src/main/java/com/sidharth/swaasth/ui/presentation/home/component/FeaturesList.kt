@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun FeaturesView() {
+fun FeaturesList() {
 }
 
 
 @Preview
 @Composable
-private fun FeaturesViewPreview() {
-    FeaturesView()
+private fun FeaturesListPreview() {
+    FeaturesList()
 }
 
