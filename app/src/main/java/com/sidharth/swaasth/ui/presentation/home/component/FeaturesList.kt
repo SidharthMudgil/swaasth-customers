@@ -14,33 +14,14 @@ fun FeaturesList() {
     val features = listOf("")
 
     Column {
-        Row {
-            Text(text = "Specialities")
-            Text(text = "See all")
-        }
-
         LazyRow {
             items(features) { item ->
-                SpecialityCard(item)
+                AsyncImage(model = item, contentDescription = null)
             }
         }
-    }
-}
 
-@Composable
-fun SpecialityCard(
-    speciality: String
-) {
-    Column {
-        AsyncImage(model = "", contentDescription = null)
-        Text(text = speciality)
+//        TODO add dots indicator library
     }
-}
-
-@Preview
-@Composable
-private fun SpecialityCardPreview() {
-    SpecialityCard("General Physician")
 }
 
 
