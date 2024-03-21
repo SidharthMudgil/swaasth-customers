@@ -5,6 +5,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.sidharth.swaasth.ui.component.DoctorCard
+import com.sidharth.swaasth.ui.presentation.queue.component.PatientList
+import com.sidharth.swaasth.ui.presentation.queue.component.StatusCard
 
 @Composable
 fun LiveQueueScreen() {

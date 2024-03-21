@@ -16,6 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sidharth.swaasth.ui.component.DoctorCard
+import com.sidharth.swaasth.ui.presentation.appointment.component.DateCard
+import com.sidharth.swaasth.ui.presentation.appointment.component.ExperienceCard
+import com.sidharth.swaasth.ui.presentation.appointment.component.TimingCard
 import java.time.LocalDateTime
 
 @Composable

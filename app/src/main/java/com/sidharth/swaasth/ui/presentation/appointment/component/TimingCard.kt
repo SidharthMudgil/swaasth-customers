@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.presentation.appointment
+package com.sidharth.swaasth.ui.presentation.appointment.component
 
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text

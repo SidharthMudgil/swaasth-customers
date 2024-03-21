@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.presentation.queue
+package com.sidharth.swaasth.ui.presentation.queue.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
