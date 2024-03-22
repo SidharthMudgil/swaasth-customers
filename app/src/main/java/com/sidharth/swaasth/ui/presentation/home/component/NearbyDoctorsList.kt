@@ -9,7 +9,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
-import com.sidharth.swaasth.ui.component.DoctorCard
 
 @Composable
 fun NearbyDoctorsList() {
