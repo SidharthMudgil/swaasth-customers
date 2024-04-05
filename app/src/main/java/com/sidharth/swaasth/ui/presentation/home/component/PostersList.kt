@@ -3,6 +3,7 @@ package com.sidharth.swaasth.ui.presentation.home.component
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
@@ -32,7 +33,6 @@ fun PostersList() {
         "https://static.vecteezy.com/system/resources/previews/004/493/193/original/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-vector.jpg"
     )
 
-
     val pageCount by remember { mutableIntStateOf(3) }
     val pagerState = rememberPagerState { 3 }
 
@@ -43,8 +43,10 @@ fun PostersList() {
             state = pagerState
         ) {
             AsyncImage(
-                model = it,
-                contentDescription = null
+                model = posters[it],
+                contentDescription = null,
+                modifier = Modifier.fillMaxWidth()
+                    .height(200.dp)
             )
         }
 

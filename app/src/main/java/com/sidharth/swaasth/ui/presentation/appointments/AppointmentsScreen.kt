@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.presentation.history
+package com.sidharth.swaasth.ui.presentation.appointments
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HistoryScreen() {
+fun AppointmentsScreen() {
     val tabs = listOf("Upcoming", "Past")
     var active = 1
 
@@ -55,6 +55,6 @@ fun HistoryScreen() {
 
 @Preview
 @Composable
-private fun HistoryScreenPreview() {
-    HistoryScreen()
+private fun AppointmentsScreenPreview() {
+    AppointmentsScreen()
 }

@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.presentation.history
+package com.sidharth.swaasth.ui.presentation.appointments
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

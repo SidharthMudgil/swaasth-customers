@@ -18,7 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sidharth.swaasth.ui.navigation.BottomNavItem
-import com.sidharth.swaasth.ui.presentation.history.HistoryScreen
+import com.sidharth.swaasth.ui.presentation.appointments.AppointmentsScreen
 import com.sidharth.swaasth.ui.presentation.home.HomeScreen
 import com.sidharth.swaasth.ui.presentation.profile.ProfileScreen
 import com.sidharth.swaasth.ui.presentation.queue.LiveQueueScreen
@@ -39,7 +39,7 @@ fun SwaasthApp(
             ) {
                 composable(BottomNavItem.Home.route) { HomeScreen() }
                 composable(BottomNavItem.LiveQueue.route) { LiveQueueScreen() }
-                composable(BottomNavItem.Appointments.route) { HistoryScreen() }
+                composable(BottomNavItem.Appointments.route) { AppointmentsScreen() }
                 composable(BottomNavItem.Profile.route) { ProfileScreen() }
             }
         }
