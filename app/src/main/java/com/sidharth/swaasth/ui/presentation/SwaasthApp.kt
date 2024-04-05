@@ -8,41 +8,73 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.sidharth.swaasth.ui.navigation.NavItem
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.sidharth.swaasth.ui.navigation.BottomNavItem
+import com.sidharth.swaasth.ui.presentation.history.HistoryScreen
+import com.sidharth.swaasth.ui.presentation.home.HomeScreen
+import com.sidharth.swaasth.ui.presentation.profile.ProfileScreen
+import com.sidharth.swaasth.ui.presentation.queue.LiveQueueScreen
 import com.sidharth.swaasth.ui.theme.SwaasthTheme
 
 @Composable
-fun SwaasthApp(finishActivity: () -> Unit) {
+fun SwaasthApp(
+    navController: NavHostController
+) {
     SwaasthTheme {
         Scaffold(
-            bottomBar = { BottomNavigationBar() }
+            bottomBar = { BottomNavigationBar(navController) }
         ) {
-            Text(
-                text = "asd",
+            NavHost(
+                navController = navController,
+                startDestination = BottomNavItem.Home.route,
                 modifier = Modifier.padding(it)
-            )
+            ) {
+                composable(BottomNavItem.Home.route) { HomeScreen() }
+                composable(BottomNavItem.LiveQueue.route) { LiveQueueScreen() }
+                composable(BottomNavItem.Appointments.route) { HistoryScreen() }
+                composable(BottomNavItem.Profile.route) { ProfileScreen() }
+            }
         }
     }
 }
 
 @Composable
-fun BottomNavigationBar() {
-    val items = listOf(NavItem.Home, NavItem.LiveQueue, NavItem.Appointments, NavItem.Profile)
-    var selectedItem by rememberSaveable { mutableIntStateOf(0) }
+fun BottomNavigationBar(
+    navController: NavHostController
+) {
+    val items = listOf(
+        BottomNavItem.Home,
+        BottomNavItem.LiveQueue,
+        BottomNavItem.Appointments,
+        BottomNavItem.Profile
+    )
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
 
     NavigationBar {
-        items.forEachIndexed { index, item ->
+        items.forEach { item ->
             NavigationBarItem(
                 alwaysShowLabel = true,
-                icon = { Icon(item.icon, contentDescription = item.title) },
-                label = { Text(item.title) },
-                selected = selectedItem == index,
-                onClick = { selectedItem = index }
+                icon = { Icon(item.icon, contentDescription = item.route) },
+                label = { Text(item.route) },
+                selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
             )
         }
     }
@@ -51,11 +83,11 @@ fun BottomNavigationBar() {
 @Preview(showBackground = true)
 @Composable
 private fun SwaasthAppPreview() {
-    SwaasthApp {}
+    SwaasthApp(rememberNavController())
 }
 
 @Preview
 @Composable
 private fun BottomNavBarPreview() {
-    BottomNavigationBar()
+    BottomNavigationBar(rememberNavController())
 }
