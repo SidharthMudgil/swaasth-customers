@@ -1,7 +1,10 @@
 package com.sidharth.swaasth.common.constant
 
+import com.sidharth.swaasth.common.constant.DemoConstants.firstNames
+import com.sidharth.swaasth.common.constant.DemoConstants.lastNames
 import com.sidharth.swaasth.common.enums.MedicalField
 import com.sidharth.swaasth.domain.model.Doctor
+import com.sidharth.swaasth.domain.model.Patient
 import com.sidharth.swaasth.domain.model.Speciality
 import kotlin.random.Random
 
@@ -13,30 +16,237 @@ object DemoConstants {
     )
 
     val demoSpecialities = listOf(
-        Speciality(MedicalField.CHIROPRACTOR, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.BIOKINETICIST, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.ATHLETIC_TRAINER, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.YOGA_INSTRUCTOR, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.MASSAGE_THERAPIST, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.RADIOLOGIST, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.RADIOLOGY_PHYSICIAN_ASSISTANT, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.RADIOTHERAPIST, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.RADIOGRAPHER, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"),
-        Speciality(MedicalField.CT_RADIOGRAPHER, "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png")
+        Speciality(
+            MedicalField.CHIROPRACTOR,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.BIOKINETICIST,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.ATHLETIC_TRAINER,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.YOGA_INSTRUCTOR,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.MASSAGE_THERAPIST,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.RADIOLOGIST,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.RADIOLOGY_PHYSICIAN_ASSISTANT,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.RADIOTHERAPIST,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.RADIOGRAPHER,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        ),
+        Speciality(
+            MedicalField.CT_RADIOGRAPHER,
+            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+        )
     )
 
-    val demoDoctors = generateRandomDoctors(Random.nextInt(10,20))
-}
-
-private fun generateRandomDoctors(count: Int): List<Doctor> {
     val firstNames = listOf(
-        "Aarav", "Aaradhya", "Aashish", "Abha", "Abhay", "Aditi", "Aditya", "Advait", "Akanksha", "Akhil", "Akshara", "Akshay", "Alia", "Alok", "Amit", "Amita", "Amrita", "Anand", "Ananya", "Aniket", "Anisha", "Anuj", "Anupam", "Apoorva", "Arjun", "Arpita", "Arvind", "Ashok", "Avinash", "Ayush", "Bhavana", "Bhuvan", "Chaitanya", "Charu", "Chetan", "Deepti", "Dev", "Dhruv", "Divya", "Gaurav", "Geeta", "Girish", "Hari", "Harsha", "Ishaan", "Jagdish", "Jaya", "Kamal", "Kavita", "Kishan", "Krishna", "Lakshmi", "Madhav", "Mahesh", "Manisha", "Mayank", "Meera", "Mohan", "Mukesh", "Neha", "Nikhil", "Nirav", "Pankaj", "Parul", "Pranav", "Prachi", "Pradeep", "Pramod", "Pranita", "Preeti", "Rahul", "Raj", "Rajesh", "Ramesh", "Rashmi", "Ravi", "Rohan", "Rohit", "Sachin", "Sameer", "Sanjay", "Santosh", "Sarita", "Saurabh", "Shalini", "Shashi", "Shikha", "Shilpa", "Shiva", "Shraddha", "Shreyas", "Shubham", "Siddharth", "Sneha", "Sonal", "Sudeep", "Sumit", "Sunita", "Sunil", "Suresh", "Swapnil", "Swati", "Tanya", "Tanvi", "Tarun", "Uday", "Uma", "Vaibhav", "Vidya", "Vikram", "Vimal", "Vinita", "Vivek", "Yogesh"
+        "Aarav",
+        "Aaradhya",
+        "Aashish",
+        "Abha",
+        "Abhay",
+        "Aditi",
+        "Aditya",
+        "Advait",
+        "Akanksha",
+        "Akhil",
+        "Akshara",
+        "Akshay",
+        "Alia",
+        "Alok",
+        "Amit",
+        "Amita",
+        "Amrita",
+        "Anand",
+        "Ananya",
+        "Aniket",
+        "Anisha",
+        "Anuj",
+        "Anupam",
+        "Apoorva",
+        "Arjun",
+        "Arpita",
+        "Arvind",
+        "Ashok",
+        "Avinash",
+        "Ayush",
+        "Bhavana",
+        "Bhuvan",
+        "Chaitanya",
+        "Charu",
+        "Chetan",
+        "Deepti",
+        "Dev",
+        "Dhruv",
+        "Divya",
+        "Gaurav",
+        "Geeta",
+        "Girish",
+        "Hari",
+        "Harsha",
+        "Ishaan",
+        "Jagdish",
+        "Jaya",
+        "Kamal",
+        "Kavita",
+        "Kishan",
+        "Krishna",
+        "Lakshmi",
+        "Madhav",
+        "Mahesh",
+        "Manisha",
+        "Mayank",
+        "Meera",
+        "Mohan",
+        "Mukesh",
+        "Neha",
+        "Nikhil",
+        "Nirav",
+        "Pankaj",
+        "Parul",
+        "Pranav",
+        "Prachi",
+        "Pradeep",
+        "Pramod",
+        "Pranita",
+        "Preeti",
+        "Rahul",
+        "Raj",
+        "Rajesh",
+        "Ramesh",
+        "Rashmi",
+        "Ravi",
+        "Rohan",
+        "Rohit",
+        "Sachin",
+        "Sameer",
+        "Sanjay",
+        "Santosh",
+        "Sarita",
+        "Saurabh",
+        "Shalini",
+        "Shashi",
+        "Shikha",
+        "Shilpa",
+        "Shiva",
+        "Shraddha",
+        "Shreyas",
+        "Shubham",
+        "Siddharth",
+        "Sneha",
+        "Sonal",
+        "Sudeep",
+        "Sumit",
+        "Sunita",
+        "Sunil",
+        "Suresh",
+        "Swapnil",
+        "Swati",
+        "Tanya",
+        "Tanvi",
+        "Tarun",
+        "Uday",
+        "Uma",
+        "Vaibhav",
+        "Vidya",
+        "Vikram",
+        "Vimal",
+        "Vinita",
+        "Vivek",
+        "Yogesh"
     )
 
     val lastNames = listOf(
-        "Agarwal", "Ahuja", "Bajaj", "Bansal", "Batra", "Chadha", "Chandra", "Chopra", "Das", "Dutta", "Gupta", "Jain", "Jha", "Kapoor", "Khanna", "Kumar", "Mahajan", "Malhotra", "Mehta", "Mishra", "Mohanty", "Patel", "Pillai", "Prasad", "Rao", "Rastogi", "Reddy", "Seth", "Shah", "Sharma", "Singh", "Sinha", "Srivastava", "Thakur", "Trivedi", "Varma", "Verma"
+        "Agarwal",
+        "Ahuja",
+        "Bajaj",
+        "Bansal",
+        "Batra",
+        "Chadha",
+        "Chandra",
+        "Chopra",
+        "Das",
+        "Dutta",
+        "Gupta",
+        "Jain",
+        "Jha",
+        "Kapoor",
+        "Khanna",
+        "Kumar",
+        "Mahajan",
+        "Malhotra",
+        "Mehta",
+        "Mishra",
+        "Mohanty",
+        "Patel",
+        "Pillai",
+        "Prasad",
+        "Rao",
+        "Rastogi",
+        "Reddy",
+        "Seth",
+        "Shah",
+        "Sharma",
+        "Singh",
+        "Sinha",
+        "Srivastava",
+        "Thakur",
+        "Trivedi",
+        "Varma",
+        "Verma"
     )
 
+    val demoDoctors = generateRandomDoctors(Random.nextInt(10, 20))
+
+    val demoPatients = generatePatients()
+}
+
+private fun generatePatients(): List<Patient> {
+    val patients = mutableListOf<Patient>()
+
+    repeat(5) {
+        patients.add(
+            Patient(
+                id = "1",
+                name = "${firstNames.random()} ${lastNames.random()}",
+                status = "ETA ${Random.nextInt(5, 31)}min"
+            )
+        )
+    }
+
+    repeat(5) {
+        patients.add(
+            Patient(
+                id = "0",
+                name = "${firstNames.random()} ${lastNames.random()}",
+                status = "In Clinic"
+            )
+        )
+    }
+
+    return patients
+}
+
+private fun generateRandomDoctors(count: Int): List<Doctor> {
     val doctorImages = listOf(
         "https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg",
         "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg",

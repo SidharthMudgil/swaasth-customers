@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.ui.component.DoctorCard
 import com.sidharth.swaasth.ui.presentation.appointment.component.DateCard
 import com.sidharth.swaasth.ui.presentation.appointment.component.ExperienceCard
@@ -38,7 +39,7 @@ fun AppointmentScreen() {
             .fillMaxWidth()
     ) {
         Text(text = "Appointment")
-        DoctorCard()
+        DoctorCard(DemoConstants.demoDoctors[0])
         ExperienceCard()
         Text(text = "About Doctor")
         Text(text = "Has Extensive Scientific Knowledge: Good dental surgeon should have a wealth of knowledge about teeth and oral hygiene. They are able to quickly identify problems as well as their most effective treatments.")
