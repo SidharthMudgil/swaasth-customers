@@ -20,7 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.sidharth.swaasth.common.constant.AppConstants
+import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.ui.theme.Blue20
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.tbuonomo.viewpagerdotsindicator.compose.DotsIndicator
@@ -30,7 +30,7 @@ import com.tbuonomo.viewpagerdotsindicator.compose.type.SpringIndicatorType
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BannersList() {
-    val posters = AppConstants.demoBanners
+    val posters = DemoConstants.demoBanners
     val pageCount by remember { mutableIntStateOf(posters.size) }
     val pagerState = rememberPagerState { 3 }
 

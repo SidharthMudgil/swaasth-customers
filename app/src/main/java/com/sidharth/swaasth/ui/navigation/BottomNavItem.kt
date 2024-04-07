@@ -5,7 +5,6 @@ import androidx.compose.material.icons.rounded.Groups
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.sidharth.swaasth.common.constant.AppConstants
 
 sealed class BottomNavItem(
     val route: String,

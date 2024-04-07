@@ -24,14 +24,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.sidharth.swaasth.common.constant.AppConstants
+import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.domain.model.Speciality
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey100
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
 fun SpecialitiesList() {
-    val specialities = AppConstants.demoSpecialities
+    val specialities = DemoConstants.demoSpecialities
 
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -85,7 +85,7 @@ fun SpecialityCard(
             modifier = Modifier
                 .background(White)
                 .size(80.dp, 80.dp)
-                .border(1.dp, Grey200, RoundedCornerShape(12.dp))
+                .border(1.dp, Grey100, RoundedCornerShape(12.dp))
         )
 
         Text(
@@ -103,7 +103,7 @@ fun SpecialityCard(
 @Preview(showBackground = true)
 @Composable
 private fun SpecialityCardPreview() {
-    SpecialityCard(AppConstants.demoSpecialities[0])
+    SpecialityCard(DemoConstants.demoSpecialities[0])
 }
 
 @Preview(showBackground = true)

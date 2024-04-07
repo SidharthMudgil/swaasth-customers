@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sidharth.swaasth.ui.theme.Black
 import com.sidharth.swaasth.ui.theme.Blue80
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey100
 import com.sidharth.swaasth.ui.theme.Purple
 import com.sidharth.swaasth.ui.theme.White
 
@@ -126,7 +126,7 @@ fun GreetingsCard() {
                                 if (query.isEmpty()) {
                                     Text(
                                         text = "Search Doctor",
-                                        color = Grey200,
+                                        color = Grey100,
                                         modifier = Modifier.background(Color.Transparent)
                                     )
                                 }
