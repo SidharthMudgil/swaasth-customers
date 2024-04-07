@@ -14,3 +14,7 @@ val Purple = Color(0xFF9B7985)
 
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
+
+val Grey800 = Color(0xFF1A1A1A)
+val Grey400 = Color(0xFF363636)
+val Grey200 = Color(0xFF636363)

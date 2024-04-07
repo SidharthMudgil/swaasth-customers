@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -38,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sidharth.swaasth.ui.theme.Black
 import com.sidharth.swaasth.ui.theme.Blue80
+import com.sidharth.swaasth.ui.theme.Grey200
 import com.sidharth.swaasth.ui.theme.Purple
 import com.sidharth.swaasth.ui.theme.White
 
@@ -120,7 +122,16 @@ fun GreetingsCard() {
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Icon(imageVector = Icons.Rounded.Search, contentDescription = null)
-                            Box(modifier = Modifier.weight(1f)) { it() }
+                            Box(modifier = Modifier.weight(1f)) {
+                                if (query.isEmpty()) {
+                                    Text(
+                                        text = "Search Doctor",
+                                        color = Grey200,
+                                        modifier = Modifier.background(Color.Transparent)
+                                    )
+                                }
+                                it()
+                            }
                         }
                     }
                 )
