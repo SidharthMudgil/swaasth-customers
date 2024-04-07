@@ -1,21 +1,34 @@
 package com.sidharth.swaasth.ui.presentation.home.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Notifications
+import androidx.compose.material.icons.rounded.QrCodeScanner
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
+import androidx.compose.ui.unit.sp
+import com.sidharth.swaasth.ui.theme.Blue80
+import com.sidharth.swaasth.ui.theme.Purple
+import com.sidharth.swaasth.ui.theme.White
 
 @Composable
 fun GreetingsCard() {
@@ -23,7 +36,7 @@ fun GreetingsCard() {
         shape = RoundedCornerShape(bottomEnd = 40.dp, bottomStart = 40.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.4f)
+            .wrapContentHeight()
     ) {
         Box(
             modifier = Modifier
@@ -31,18 +44,44 @@ fun GreetingsCard() {
                 .fillMaxHeight()
                 .background(
                     Brush.linearGradient(
-                        colors = listOf(Color.Blue, Color.Green),
+                        start = Offset(0f, Float.POSITIVE_INFINITY),
+                        end = Offset(Float.POSITIVE_INFINITY, 0f),
+                        colors = listOf(
+                            Blue80, Purple
+                        ),
                     )
                 )
         ) {
-            Row {
-                AsyncImage(model = "", contentDescription = null)
-                AsyncImage(model = "", contentDescription = null)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Image(
+                        imageVector = Icons.Rounded.QrCodeScanner,
+                        contentDescription = "QR Scanner",
+                        colorFilter = ColorFilter.tint(White),
+                        modifier = Modifier.size(28.dp)
+                    )
+
+                    Image(
+                        imageVector = Icons.Rounded.Notifications,
+                        contentDescription = "QR Scanner",
+                        colorFilter = ColorFilter.tint(White),
+                        modifier = Modifier.size(28.dp)
+                    )
+                }
+
+                Text(text = "Hello,\nSuhani", fontSize = 48.sp)
+
+                TextField(value = "Search Doctor", { value ->
+                    TODO(value)
+                })
             }
-            Text(text = "Hello, Suhani")
-            TextField(value = "Search Doctor", { value ->
-                TODO(value)
-            })
         }
     }
 }

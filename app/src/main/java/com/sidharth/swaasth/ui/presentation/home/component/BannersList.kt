@@ -4,15 +4,13 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,12 +19,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tbuonomo.viewpagerdotsindicator.compose.DotsIndicator
 import com.tbuonomo.viewpagerdotsindicator.compose.model.DotGraphic
-import com.tbuonomo.viewpagerdotsindicator.compose.type.ShiftIndicatorType
 import com.tbuonomo.viewpagerdotsindicator.compose.type.SpringIndicatorType
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PostersList() {
+fun BannersList() {
     val posters = listOf(
         "https://as1.ftcdn.net/v2/jpg/01/96/63/34/1000_F_196633449_esdLHOjO3QxrxVF8WWTRdDc501w1Xtm1.jpg",
         "https://img.freepik.com/free-vector/tiny-doctors-patients-near-hospital-flat-vector-illustration-therapist-face-mask-saying-goodbye-cured-people-near-medical-building-ambulance-emergency-clinic-concept_74855-25338.jpg",
@@ -37,7 +34,9 @@ fun PostersList() {
     val pagerState = rememberPagerState { 3 }
 
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
     ) {
         HorizontalPager(
             state = pagerState
@@ -72,7 +71,7 @@ fun PostersList() {
 
 @Preview
 @Composable
-private fun FeaturesListPreview() {
-    PostersList()
+private fun BannersListPreview() {
+    BannersList()
 }
 
