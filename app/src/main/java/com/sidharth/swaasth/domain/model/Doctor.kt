@@ -1,11 +1,11 @@
 package com.sidharth.swaasth.domain.model
 
-import com.sidharth.swaasth.common.enums.Profession
+import com.sidharth.swaasth.common.enums.MedicalField
 
 data class Doctor(
     val id: String,
     val name: String,
-    val profession: Profession,
+    val speciality: MedicalField,
     val experience: Int,
     val patientsCount: Int,
     val rating: Double,

@@ -20,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.sidharth.swaasth.common.constant.AppConstants
 import com.sidharth.swaasth.ui.theme.Blue20
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.tbuonomo.viewpagerdotsindicator.compose.DotsIndicator
@@ -29,13 +30,8 @@ import com.tbuonomo.viewpagerdotsindicator.compose.type.SpringIndicatorType
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BannersList() {
-    val posters = listOf(
-        "https://as1.ftcdn.net/v2/jpg/01/96/63/34/1000_F_196633449_esdLHOjO3QxrxVF8WWTRdDc501w1Xtm1.jpg",
-        "https://img.freepik.com/free-vector/tiny-doctors-patients-near-hospital-flat-vector-illustration-therapist-face-mask-saying-goodbye-cured-people-near-medical-building-ambulance-emergency-clinic-concept_74855-25338.jpg",
-        "https://static.vecteezy.com/system/resources/previews/004/493/193/original/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-vector.jpg"
-    )
-
-    val pageCount by remember { mutableIntStateOf(3) }
+    val posters = AppConstants.demoBanners
+    val pageCount by remember { mutableIntStateOf(posters.size) }
     val pagerState = rememberPagerState { 3 }
 
     Column(

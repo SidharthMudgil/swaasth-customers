@@ -1,6 +1,6 @@
 package com.sidharth.swaasth.common.enums
 
-enum class Profession {
+enum class MedicalField {
     ANESTHESIOLOGIST,
     ANESTHESIOLOGY_FELLOW,
     CERTIFIED_REGISTERED_NURSE_ANESTHETIST,
