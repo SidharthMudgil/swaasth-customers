@@ -254,7 +254,7 @@ object DemoConstants {
 
     val appointments by lazy { generateAppointments() }
 
-    val notifications by lazy { generateNotifications() }
+    val demoNotifications by lazy { generateNotifications() }
 
     val demoUser by lazy {
         User(
