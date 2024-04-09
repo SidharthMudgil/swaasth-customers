@@ -1,9 +1,13 @@
 package com.sidharth.swaasth.common.constant
 
+import com.sidharth.swaasth.common.constant.DemoConstants.demoDoctors
 import com.sidharth.swaasth.common.constant.DemoConstants.firstNames
 import com.sidharth.swaasth.common.constant.DemoConstants.lastNames
+import com.sidharth.swaasth.common.constant.DemoConstants.notificationMessages
 import com.sidharth.swaasth.common.enums.MedicalField
+import com.sidharth.swaasth.domain.model.Appointment
 import com.sidharth.swaasth.domain.model.Doctor
+import com.sidharth.swaasth.domain.model.Notification
 import com.sidharth.swaasth.domain.model.Patient
 import com.sidharth.swaasth.domain.model.Speciality
 import kotlin.random.Random
@@ -215,9 +219,66 @@ object DemoConstants {
         "Verma"
     )
 
-    val demoDoctors = generateRandomDoctors(Random.nextInt(10, 20))
+    val notificationMessages = listOf(
+        "Appointment scheduled successfully.",
+        "Your order has been placed successfully.",
+        "Password reset link sent to your email.",
+        "Profile updated successfully.",
+        "New message received from support.",
+        "Your subscription has been renewed.",
+        "Welcome to our community!",
+        "Reminder: Your appointment is tomorrow.",
+        "Congratulations! You've reached a new milestone.",
+        "Thank you for your feedback. We'll address the issue promptly."
+    )
 
-    val demoPatients = generatePatients()
+    val demoDoctors by lazy { generateRandomDoctors(Random.nextInt(10, 20)) }
+
+    val demoPatients by lazy { generatePatients() }
+
+    val appointments by lazy { generateAppointments() }
+
+    val notifications by lazy { generateNotifications() }
+}
+
+private fun getRandomTimestamp(future: Int = 1): Long {
+    val currentTime = System.currentTimeMillis()
+    val fifteenDaysInMillis = 1000 * 60 * 60 * 24 * 15L
+    return currentTime - fifteenDaysInMillis + Random.nextLong(0, fifteenDaysInMillis * 2) * future
+}
+
+private fun generateNotifications(): List<Notification> {
+    val notifications = mutableListOf<Notification>()
+
+    repeat(10) {
+        notifications.add(
+            Notification(
+                id = "$it",
+                message = notificationMessages.random(),
+                timestamp = getRandomTimestamp(0)
+            )
+        )
+    }
+
+    return notifications
+}
+
+private fun generateAppointments(): List<Appointment> {
+    val appointments = mutableListOf<Appointment>()
+
+    val availableTimeslots = listOf("Morning", "Afternoon", "Evening")
+
+    repeat(20) {
+        appointments.add(
+            Appointment(
+                timeslot = availableTimeslots.random(),
+                timestamp = getRandomTimestamp(),
+                doctor = demoDoctors.random()
+            )
+        )
+    }
+
+    return appointments
 }
 
 private fun generatePatients(): List<Patient> {

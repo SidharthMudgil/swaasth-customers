@@ -78,7 +78,7 @@ fun StatusCard() {
                 .padding(16.dp, 4.dp)
         ) {
             Text(
-                text = "5",
+                text = "10",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.ExtraBold,
             )

@@ -118,7 +118,11 @@ fun DoctorCard(
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {
-            Text(text = doctor.name)
+            Text(
+                text = doctor.name,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
 
             Text(
                 text = "${

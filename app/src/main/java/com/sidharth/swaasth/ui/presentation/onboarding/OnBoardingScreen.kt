@@ -40,7 +40,7 @@ fun OnBoardingScreen() {
         Text(text = "Introducing Swaasth")
         Text(text = "With Swaasth, accessing healthcare services is effortless and efficient. Take control of your health journey with the convenience of Swaasth at your fingertips.")
         Card(
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape(12.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(

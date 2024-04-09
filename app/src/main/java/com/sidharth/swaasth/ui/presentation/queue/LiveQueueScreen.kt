@@ -40,6 +40,14 @@ fun LiveQueueScreen() {
             .padding(16.dp)
     ) {
         item {
+            Text(
+                text = "Live Queue",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.padding(top = 16.dp))
+        }
+        item {
             DoctorCard(DemoConstants.demoDoctors[0])
             Spacer(modifier = Modifier.padding(top = 16.dp))
         }

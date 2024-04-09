@@ -2,6 +2,7 @@ package com.sidharth.swaasth.common.datatype
 
 import java.time.Instant
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
@@ -9,7 +10,7 @@ data class Date(
     private val timeInMillis: Long
 ) {
     val date by lazy {
-        LocalDateTime.from(Instant.ofEpochMilli(timeInMillis))
+        LocalDateTime.ofInstant(Instant.ofEpochMilli(timeInMillis), ZoneOffset.UTC)
     }
 
     val DATE: Int
@@ -58,11 +59,21 @@ data class Date(
         }
     }
 
+    fun compareWithToday(): Int {
+        val now = LocalDateTime.now()
+
+        return when {
+            now.isAfter(date) -> -1
+            now.isBefore(date) -> 1
+            else -> 0
+        }
+    }
+
     fun formattedDate(
         pattern: String = "dd-MM-yyyy"
-    ) = DateTimeFormatter.ofPattern(pattern).format(
-        Instant.ofEpochMilli(timeInMillis)
-    )
+    ): String {
+        return DateTimeFormatter.ofPattern(pattern).format(date)
+    }
 
     operator fun invoke(timeInMillis: Long) = Date(timeInMillis)
 }
