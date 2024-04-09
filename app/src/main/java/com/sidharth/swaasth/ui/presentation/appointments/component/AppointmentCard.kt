@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.presentation.appointments
+package com.sidharth.swaasth.ui.presentation.appointments.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -128,7 +129,7 @@ fun AppointmentCard(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Button(
+                OutlinedButton(
                     shape = RoundedCornerShape(12.dp),
                     onClick = {},
                     modifier = Modifier.weight(1f)

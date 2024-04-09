@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+import kotlin.math.abs
 
 data class Date(
     private val timeInMillis: Long
@@ -57,6 +58,10 @@ data class Date(
                 }
             }
         }
+    }
+
+    fun yearDifference(date: Date): Int {
+        return abs(date.YEAR - this.YEAR)
     }
 
     fun compareWithToday(): Int {

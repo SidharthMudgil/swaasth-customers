@@ -1,15 +1,18 @@
 package com.sidharth.swaasth.common.constant
 
 import com.sidharth.swaasth.common.constant.DemoConstants.demoDoctors
+import com.sidharth.swaasth.common.constant.DemoConstants.doctorImages
 import com.sidharth.swaasth.common.constant.DemoConstants.firstNames
 import com.sidharth.swaasth.common.constant.DemoConstants.lastNames
 import com.sidharth.swaasth.common.constant.DemoConstants.notificationMessages
+import com.sidharth.swaasth.common.enums.Gender
 import com.sidharth.swaasth.common.enums.MedicalField
 import com.sidharth.swaasth.domain.model.Appointment
 import com.sidharth.swaasth.domain.model.Doctor
 import com.sidharth.swaasth.domain.model.Notification
 import com.sidharth.swaasth.domain.model.Patient
 import com.sidharth.swaasth.domain.model.Speciality
+import com.sidharth.swaasth.domain.model.User
 import kotlin.random.Random
 
 object DemoConstants {
@@ -219,6 +222,19 @@ object DemoConstants {
         "Verma"
     )
 
+    val doctorImages = listOf(
+        "https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg",
+        "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg",
+        "https://img.freepik.com/premium-photo/portrait-smiling-doctor-white-uniform-standing-with-crossed-hands-grey-background_168410-1747.jpg",
+        "https://thumbs.dreamstime.com/b/sexy-sensual-blonde-woman-beautiful-girl-spring-romantic-casual-woman-portrait-beautiful-girl-outdoor-close-up-sexy-sensual-blonde-242365361.jpg",
+        "https://c4.wallpaperflare.com/wallpaper/810/440/905/hot-girl-hd-1920x1200-wallpaper-preview.jpg",
+        "https://c8.alamy.com/zooms/9/d52391dcf89a4749b4b9cd160792e88d/gd4wmf.jpg",
+        "https://t3.ftcdn.net/jpg/05/87/35/38/360_F_587353890_dEdFmxwUWJNtYo5nOh2rLd8uelv75LMT.jpg",
+        "https://img.freepik.com/premium-photo/indian-medical-students-smiling-giving-happy-expression_130568-403.jpg",
+        "https://img.freepik.com/premium-photo/indian-medical-student-group-smiling-giving-happy-expression_130568-401.jpg",
+        "https://t3.ftcdn.net/jpg/02/79/63/30/360_F_279633092_quePrl3OjoTbJi4tYy62BSko7zB8QO36.jpg"
+    )
+
     val notificationMessages = listOf(
         "Appointment scheduled successfully.",
         "Your order has been placed successfully.",
@@ -239,6 +255,18 @@ object DemoConstants {
     val appointments by lazy { generateAppointments() }
 
     val notifications by lazy { generateNotifications() }
+
+    val demoUser by lazy {
+        User(
+            id = Random.nextDouble().toString(),
+            name = "${firstNames.random()} ${lastNames.random()}",
+            phone = "9638772639",
+            email = "${firstNames.random()}@gmail.com",
+            sex = Gender.entries.random(),
+            dob = System.currentTimeMillis() - 1000 * 60L * 60 * 24 * 30 * 12 * (Random.nextInt(18,40)),
+            image = doctorImages.random()
+        )
+    }
 }
 
 private fun getRandomTimestamp(future: Int = 1): Long {
@@ -308,19 +336,6 @@ private fun generatePatients(): List<Patient> {
 }
 
 private fun generateRandomDoctors(count: Int): List<Doctor> {
-    val doctorImages = listOf(
-        "https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg",
-        "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg",
-        "https://img.freepik.com/premium-photo/portrait-smiling-doctor-white-uniform-standing-with-crossed-hands-grey-background_168410-1747.jpg",
-        "https://thumbs.dreamstime.com/b/sexy-sensual-blonde-woman-beautiful-girl-spring-romantic-casual-woman-portrait-beautiful-girl-outdoor-close-up-sexy-sensual-blonde-242365361.jpg",
-        "https://c4.wallpaperflare.com/wallpaper/810/440/905/hot-girl-hd-1920x1200-wallpaper-preview.jpg",
-        "https://c8.alamy.com/zooms/9/d52391dcf89a4749b4b9cd160792e88d/gd4wmf.jpg",
-        "https://t3.ftcdn.net/jpg/05/87/35/38/360_F_587353890_dEdFmxwUWJNtYo5nOh2rLd8uelv75LMT.jpg",
-        "https://img.freepik.com/premium-photo/indian-medical-students-smiling-giving-happy-expression_130568-403.jpg",
-        "https://img.freepik.com/premium-photo/indian-medical-student-group-smiling-giving-happy-expression_130568-401.jpg",
-        "https://t3.ftcdn.net/jpg/02/79/63/30/360_F_279633092_quePrl3OjoTbJi4tYy62BSko7zB8QO36.jpg"
-    )
-
     val hospitals = listOf(
         "ABC Hospital, XYZ Nagar",
         "PQR Medical Center, LMN Road",

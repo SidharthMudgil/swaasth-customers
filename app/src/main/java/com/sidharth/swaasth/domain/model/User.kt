@@ -9,5 +9,5 @@ data class User(
     val email: String,
     val sex: Gender,
     val dob: Long,
-    val cover: String,
+    val image: String,
 )

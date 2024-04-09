@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
@@ -28,13 +27,13 @@ import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.common.datatype.Date
 import com.sidharth.swaasth.domain.model.Appointment
 import com.sidharth.swaasth.ui.component.SearchBar
+import com.sidharth.swaasth.ui.presentation.appointments.component.AppointmentsList
 import com.sidharth.swaasth.ui.theme.Black
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Grey100
 import com.sidharth.swaasth.ui.theme.Transparent
 import com.sidharth.swaasth.ui.theme.White
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppointmentsScreen() {
     val tabs = listOf("Upcoming", "Past")

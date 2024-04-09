@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.presentation.appointments
+package com.sidharth.swaasth.ui.presentation.appointments.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
