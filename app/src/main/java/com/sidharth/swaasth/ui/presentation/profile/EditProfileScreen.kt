@@ -3,16 +3,23 @@ package com.sidharth.swaasth.ui.presentation.profile
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,13 +30,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.sidharth.swaasth.ui.component.InputField
+import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Grey200
 
 @Composable
 fun EditProfileScreen() {
     Scaffold {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
                 .padding(it)
@@ -37,10 +44,27 @@ fun EditProfileScreen() {
                 .fillMaxHeight()
                 .padding(16.dp)
         ) {
+            TextButton(
+                onClick = {},
+                contentPadding = PaddingValues(0.dp),
+                modifier = Modifier
+                    .align(Alignment.Start)
+                    .defaultMinSize(1.dp, 1.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.ArrowBackIosNew,
+                    contentDescription = null,
+                    modifier = Modifier.size(14.dp),
+                    tint = Blue80
+                )
+                Text(text = "Back")
+            }
+
             Text(
                 text = "Edit Profile",
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
             Spacer(modifier = Modifier.padding(top = 8.dp))
@@ -52,6 +76,7 @@ fun EditProfileScreen() {
                     .aspectRatio(1f)
                     .clip(CircleShape)
                     .background(Grey200)
+                    .align(Alignment.CenterHorizontally)
             )
 
             Spacer(modifier = Modifier.padding(top = 8.dp))
