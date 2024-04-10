@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.common.datatype.Date
 import com.sidharth.swaasth.domain.model.Appointment
-import com.sidharth.swaasth.ui.component.SearchBar
+import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.presentation.appointments.component.AppointmentsList
 import com.sidharth.swaasth.ui.theme.Black
 import com.sidharth.swaasth.ui.theme.Blue80
@@ -65,12 +65,13 @@ fun AppointmentsScreen() {
         )
 
         Spacer(modifier = Modifier.padding(top = 16.dp))
-        SearchBar(
+        InputField(
             hint = "Search Appointments",
-            elevation = 2.dp
-        ) {
+            elevation = 2.dp,
+            onValueChange = {
 
-        }        
+            }
+        )
 
         Spacer(modifier = Modifier.padding(top = 16.dp))
         TabRow(

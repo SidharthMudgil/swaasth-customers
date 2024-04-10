@@ -27,7 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sidharth.swaasth.ui.component.SearchBar
+import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Purple
 import com.sidharth.swaasth.ui.theme.White
@@ -91,11 +91,12 @@ fun GreetingsCard() {
                     fontWeight = FontWeight.ExtraBold
                 )
 
-                SearchBar(
-                    hint = "Search Doctors"
-                ) {
-                    
-                }
+                InputField(
+                    hint = "Search Doctors",
+                    onValueChange = {
+
+                    }
+                )
             }
         }
     }
