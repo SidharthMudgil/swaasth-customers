@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
@@ -31,6 +32,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sidharth.swaasth.ui.theme.Black
+import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Grey10
 import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.White
@@ -41,10 +43,12 @@ fun InputField(
     onValueChange: () -> Unit,
     elevation: Dp = 0.dp,
     outlined: Boolean = false,
+    readOnly: Boolean = false,
     leadingIcon: ImageVector? = null,
     trailingIcon: ImageVector? = null,
 ) {
     var query by remember { mutableStateOf("") }
+    var focused by remember { mutableStateOf(false) }
 
     Surface(
         shadowElevation = elevation,
@@ -58,6 +62,8 @@ fun InputField(
                 query = it
                 onValueChange()
             },
+
+            readOnly = readOnly,
             maxLines = 1,
             singleLine = true,
             textStyle = TextStyle(
@@ -70,11 +76,16 @@ fun InputField(
                 .clip(RoundedCornerShape(12.dp))
                 .then(
                     if (outlined) {
-                        Modifier.border(1.dp, Grey20, RoundedCornerShape(12.dp))
+                        if (focused) {
+                            Modifier.border(2.dp, Blue80, RoundedCornerShape(12.dp))
+                        } else {
+                            Modifier.border(1.dp, Grey20, RoundedCornerShape(12.dp))
+                        }
                     } else {
                         Modifier
                     }
                 )
+                .onFocusChanged { state -> focused = state.isFocused}
                 .background(White)
                 .padding(12.dp),
             decorationBox = {
