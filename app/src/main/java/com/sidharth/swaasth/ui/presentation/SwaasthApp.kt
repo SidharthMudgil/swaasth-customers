@@ -18,8 +18,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sidharth.swaasth.ui.navigation.BottomNavItem
-import com.sidharth.swaasth.ui.presentation.appointment.PatientDetailsScreen
 import com.sidharth.swaasth.ui.presentation.appointments.AppointmentsScreen
+import com.sidharth.swaasth.ui.presentation.payment.PaymentMethodScreen
 import com.sidharth.swaasth.ui.presentation.profile.ProfileScreen
 import com.sidharth.swaasth.ui.presentation.queue.LiveQueueScreen
 import com.sidharth.swaasth.ui.theme.SwaasthTheme
@@ -30,14 +30,14 @@ fun SwaasthApp(
 ) {
     SwaasthTheme {
         Scaffold(
-            bottomBar = { BottomNavigationBar(navController) }
+//            bottomBar = { BottomNavigationBar(navController) }
         ) {
             NavHost(
                 navController = navController,
                 startDestination = BottomNavItem.Home.route,
                 modifier = Modifier.padding(it)
             ) {
-                composable(BottomNavItem.Home.route) { PatientDetailsScreen() }
+                composable(BottomNavItem.Home.route) { PaymentMethodScreen() }
                 composable(BottomNavItem.LiveQueue.route) { LiveQueueScreen() }
                 composable(BottomNavItem.Appointments.route) { AppointmentsScreen() }
                 composable(BottomNavItem.Profile.route) { ProfileScreen() }
