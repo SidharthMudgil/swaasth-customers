@@ -24,7 +24,7 @@ import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.common.datatype.Date
 import com.sidharth.swaasth.domain.model.Notification
 import com.sidharth.swaasth.ui.theme.Blue80
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey20
 
 @Composable
 fun NotificationItem(
@@ -40,7 +40,7 @@ fun NotificationItem(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .border(1.dp, Grey200, RoundedCornerShape(12.dp))
+                .border(1.dp, Grey20, RoundedCornerShape(12.dp))
                 .padding(8.dp)
         ) {
             Column(

@@ -5,6 +5,7 @@ import com.sidharth.swaasth.common.enums.MedicalField
 data class Doctor(
     val id: String,
     val name: String,
+    val about: String,
     val image: String,
     val gender: String,
     val speciality: MedicalField,
@@ -12,7 +13,8 @@ data class Doctor(
     val experience: Int,
     val patientsCount: Int,
     val rating: Double,
+    val reviews: List<String>,
     val appointmentDuration: Int,
-    val availableDayOfWeek: List<Int>,
+    val availableDaysOfMonth: List<Long>,
     val availableTimeRange: List<Pair<String, String>>
 )

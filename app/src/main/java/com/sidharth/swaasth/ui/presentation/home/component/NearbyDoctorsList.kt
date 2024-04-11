@@ -38,9 +38,9 @@ import coil.compose.AsyncImage
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.domain.model.Doctor
 import com.sidharth.swaasth.ui.theme.Green
-import com.sidharth.swaasth.ui.theme.Grey100
-import com.sidharth.swaasth.ui.theme.Grey200
-import com.sidharth.swaasth.ui.theme.Grey800
+import com.sidharth.swaasth.ui.theme.Grey10
+import com.sidharth.swaasth.ui.theme.Grey20
+import com.sidharth.swaasth.ui.theme.Grey80
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
@@ -96,7 +96,7 @@ fun DoctorCard(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .border(1.dp, Grey100, RoundedCornerShape(12.dp))
+            .border(1.dp, Grey10, RoundedCornerShape(12.dp))
             .padding(8.dp),
     ) {
         AsyncImage(
@@ -128,7 +128,7 @@ fun DoctorCard(
                 text = "${
                     doctor.speciality.name.substringBefore("_").trim().lowercase()
                 }, ${doctor.workplace}",
-                color = Grey200,
+                color = Grey20,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.sizeIn(100.dp)
@@ -154,8 +154,8 @@ fun DoctorCard(
 
                     },
                     colors = ButtonDefaults.filledTonalButtonColors(
-                        containerColor = Grey100,
-                        contentColor = Grey800
+                        containerColor = Grey10,
+                        contentColor = Grey80
                     ),
                     contentPadding = PaddingValues(12.dp, 0.dp),
                     shape = RoundedCornerShape(12.dp),

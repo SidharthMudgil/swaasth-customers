@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.theme.Blue80
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey20
 
 @Composable
 fun EditProfileScreen() {
@@ -75,7 +75,7 @@ fun EditProfileScreen() {
                     .fillMaxWidth(.3f)
                     .aspectRatio(1f)
                     .clip(CircleShape)
-                    .background(Grey200)
+                    .background(Grey20)
                     .align(Alignment.CenterHorizontally)
             )
 

@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.domain.model.Speciality
-import com.sidharth.swaasth.ui.theme.Grey100
+import com.sidharth.swaasth.ui.theme.Grey10
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
@@ -85,7 +85,7 @@ fun SpecialityCard(
             modifier = Modifier
                 .background(White)
                 .size(80.dp, 80.dp)
-                .border(1.dp, Grey100, RoundedCornerShape(12.dp))
+                .border(1.dp, Grey10, RoundedCornerShape(12.dp))
         )
 
         Text(

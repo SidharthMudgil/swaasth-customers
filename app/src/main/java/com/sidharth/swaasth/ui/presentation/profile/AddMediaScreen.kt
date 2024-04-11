@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.sidharth.swaasth.ui.theme.Blue80
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
@@ -56,7 +56,7 @@ fun AddMediaScreen() {
             modifier = Modifier
                 .fillMaxWidth(.7f)
                 .height(300.dp)
-                .background(Grey200, RoundedCornerShape(12.dp))
+                .background(Grey20, RoundedCornerShape(12.dp))
         )
 
         Spacer(modifier = Modifier.weight(1f))
@@ -68,11 +68,11 @@ fun AddMediaScreen() {
                 imageVector = Icons.Filled.PhotoLibrary,
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
-                colorFilter = ColorFilter.tint(Grey200),
+                colorFilter = ColorFilter.tint(Grey20),
                 modifier = Modifier
                     .size(48.dp)
                     .clip(CircleShape)
-                    .border(1.dp, Grey200, CircleShape)
+                    .border(1.dp, Grey20, CircleShape)
                     .padding(12.dp)
             )
 
@@ -90,10 +90,10 @@ fun AddMediaScreen() {
             Image(
                 imageVector = Icons.Rounded.FlashlightOn,
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(Grey200),
+                colorFilter = ColorFilter.tint(Grey20),
                 modifier = Modifier.size(48.dp)
                     .clip(CircleShape)
-                    .border(1.dp, Grey200, CircleShape)
+                    .border(1.dp, Grey20, CircleShape)
                     .padding(12.dp)
             )
         }

@@ -12,13 +12,14 @@ val Indigo20 = Color(0xFFC3D2FF)
 
 val Purple = Color(0xFF9B7985)
 val Green = Color(0xFF00AA0F)
+val Red = Color(0xFFAA000F)
 
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
 
-val Grey800 = Color(0xFF1A1A1A)
-val Grey400 = Color(0xFF363636)
-val Grey200 = Color(0xFFA0A0A0)
-val Grey100 = Color(0xFFD8D8D8)
+val Grey80 = Color(0xFF1A1A1A)
+val Grey40 = Color(0xFF363636)
+val Grey20 = Color(0xFFA0A0A0)
+val Grey10 = Color(0xFFD8D8D8)
 
 val Transparent = Color(0x00000000)

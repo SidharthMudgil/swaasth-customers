@@ -1,21 +1,55 @@
 package com.sidharth.swaasth.ui.presentation.appointment.component
 
-import androidx.compose.material3.Card
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import java.time.LocalDateTime
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.sidharth.swaasth.common.constant.DemoConstants
+import com.sidharth.swaasth.common.datatype.Date
+import com.sidharth.swaasth.ui.theme.Grey20
+import com.sidharth.swaasth.ui.theme.Grey40
 
 @Composable
-fun DateCard(date: LocalDateTime) {
-    Card {
-        Text(text = "${date.dayOfMonth}")
-        Text(text = date.dayOfWeek.name)
+fun DateCard(
+    timestamp: Long,
+) {
+    val date = Date(timestamp)
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .clip(RoundedCornerShape(12.dp))
+            .border(1.dp, Grey20, RoundedCornerShape(12.dp))
+            .padding(12.dp)
+    ) {
+        Text(
+            text = "${date.DATE}",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            color = Grey40
+        )
+        Text(
+            text = date.formattedDate("EEE"),
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Bold,
+            color = Grey40
+        )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun DateCardPreview() {
-    DateCard(LocalDateTime.now())
+    DateCard(
+        DemoConstants.demoDoctors[0].availableDaysOfMonth[0]
+    )
 }

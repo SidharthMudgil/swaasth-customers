@@ -347,9 +347,17 @@ private fun generateRandomDoctors(count: Int): List<Doctor> {
     val doctors = mutableListOf<Doctor>()
 
     for (i in 1..count) {
-        val availableDayOfWeek = (1..7).shuffled().take(Random.nextInt(1, 8)) // Random days of week
+        val availableDaysOfMonth = mutableListOf<Long>().apply {
+            repeat(30) {
+                if  (Random.nextBoolean()) {
+                    val timestamp = 1000 * 60L * 60 * 24 * it
+                    add(timestamp)
+                }
+            }
+        }
+
         val availableTimeRange = mutableListOf<Pair<String, String>>()
-        for (day in availableDayOfWeek) {
+        for (day in availableDaysOfMonth) {
             val startTime = String.format("%02d:%02d", Random.nextInt(0, 24), Random.nextInt(0, 60))
             val endTime = String.format("%02d:%02d", Random.nextInt(0, 24), Random.nextInt(0, 60))
             availableTimeRange.add(startTime to endTime)
@@ -359,6 +367,7 @@ private fun generateRandomDoctors(count: Int): List<Doctor> {
             id = "DOC${i.toString().padStart(3, '0')}",
             name = "${firstNames.random()} ${lastNames.random()}",
             image = doctorImages.random(),
+            about = "Has Extensive Scientific Knowledge: Good dental surgeon should have a wealth of knowledge about teeth and oral hygiene. They are able to quickly identify problems as well as their most effective treatments.",
             workplace = hospitals.random(),
             gender = if (Random.nextBoolean()) "Male" else "Female",
             speciality = MedicalField.entries.toTypedArray().random(),
@@ -366,8 +375,9 @@ private fun generateRandomDoctors(count: Int): List<Doctor> {
             patientsCount = Random.nextInt(0, 1000),
             rating = Random.nextDouble(1.0, 5.0),
             appointmentDuration = Random.nextInt(15, 61),
-            availableDayOfWeek = availableDayOfWeek,
-            availableTimeRange = availableTimeRange
+            availableDaysOfMonth = availableDaysOfMonth,
+            availableTimeRange = availableTimeRange,
+            reviews = notificationMessages.subList(0, Random.nextInt(notificationMessages.size))
         )
         doctors.add(doctor)
     }

@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sidharth.swaasth.ui.theme.Blue80
-import com.sidharth.swaasth.ui.theme.Grey400
+import com.sidharth.swaasth.ui.theme.Grey40
 
 @Composable
 fun StatusCard() {
@@ -74,7 +74,7 @@ fun StatusCard() {
         Box(
             modifier = Modifier
                 .padding(start = 8.dp)
-                .border(1.dp, Grey400, RoundedCornerShape(12.dp))
+                .border(1.dp, Grey40, RoundedCornerShape(12.dp))
                 .padding(16.dp, 4.dp)
         ) {
             Text(

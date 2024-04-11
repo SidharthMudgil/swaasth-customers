@@ -34,8 +34,8 @@ import com.sidharth.swaasth.common.datatype.Date
 import com.sidharth.swaasth.domain.model.Appointment
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Green
-import com.sidharth.swaasth.ui.theme.Grey100
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey10
+import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
@@ -50,7 +50,7 @@ fun AppointmentCard(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .border(1.dp, Grey100, RoundedCornerShape(12.dp))
+            .border(1.dp, Grey10, RoundedCornerShape(12.dp))
             .padding(8.dp),
     ) {
         Row(
@@ -83,7 +83,7 @@ fun AppointmentCard(
                     text = "${
                         appointment.doctor.speciality.name.substringBefore("_").trim().lowercase()
                     }, ${appointment.doctor.workplace}",
-                    color = Grey200,
+                    color = Grey20,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.sizeIn(100.dp)
@@ -92,7 +92,7 @@ fun AppointmentCard(
                 Text(
                     text = "${date.formattedDate()}, ${appointment.timeslot}",
                     fontWeight = FontWeight.Bold,
-                    color = Grey200,
+                    color = Grey20,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.sizeIn(100.dp)
@@ -140,7 +140,7 @@ fun AppointmentCard(
                 Text(
                     text = "Or",
                     fontWeight = FontWeight.ExtraBold,
-                    color = Grey200
+                    color = Grey20
                 )
 
                 Button(

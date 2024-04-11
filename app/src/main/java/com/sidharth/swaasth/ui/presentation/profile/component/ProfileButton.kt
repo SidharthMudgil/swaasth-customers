@@ -23,7 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.Transparent
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,7 +36,7 @@ fun ProfileButton(
     Card(
         onClick = { onClick() },
         shape = RoundedCornerShape(12.dp),
-        border = BorderStroke(1.dp, Grey200),
+        border = BorderStroke(1.dp, Grey20),
         colors = CardDefaults.cardColors(
             containerColor = Transparent
         ),
@@ -52,12 +52,12 @@ fun ProfileButton(
             Icon(
                 imageVector = icon,
                 contentDescription = null,
-                tint = Grey200,
+                tint = Grey20,
             )
 
             Text(
                 text = title,
-                color = Grey200,
+                color = Grey20,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Medium
             )

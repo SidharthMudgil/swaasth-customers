@@ -31,8 +31,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sidharth.swaasth.ui.theme.Black
-import com.sidharth.swaasth.ui.theme.Grey100
-import com.sidharth.swaasth.ui.theme.Grey200
+import com.sidharth.swaasth.ui.theme.Grey10
+import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
@@ -70,7 +70,7 @@ fun InputField(
                 .clip(RoundedCornerShape(12.dp))
                 .then(
                     if (outlined) {
-                        Modifier.border(1.dp, Grey200, RoundedCornerShape(12.dp))
+                        Modifier.border(1.dp, Grey20, RoundedCornerShape(12.dp))
                     } else {
                         Modifier
                     }
@@ -90,7 +90,7 @@ fun InputField(
                         if (query.isEmpty()) {
                             Text(
                                 text = hint,
-                                color = Grey100,
+                                color = Grey10,
                                 modifier = Modifier.background(Color.Transparent)
                             )
                         }

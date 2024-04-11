@@ -17,9 +17,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.ui.navigation.BottomNavItem
+import com.sidharth.swaasth.ui.presentation.appointment.AppointmentScreen
 import com.sidharth.swaasth.ui.presentation.appointments.AppointmentsScreen
-import com.sidharth.swaasth.ui.presentation.home.HomeScreen
 import com.sidharth.swaasth.ui.presentation.profile.ProfileScreen
 import com.sidharth.swaasth.ui.presentation.queue.LiveQueueScreen
 import com.sidharth.swaasth.ui.theme.SwaasthTheme
@@ -37,7 +38,7 @@ fun SwaasthApp(
                 startDestination = BottomNavItem.Home.route,
                 modifier = Modifier.padding(it)
             ) {
-                composable(BottomNavItem.Home.route) { HomeScreen() }
+                composable(BottomNavItem.Home.route) { AppointmentScreen(DemoConstants.demoDoctors[0]) }
                 composable(BottomNavItem.LiveQueue.route) { LiveQueueScreen() }
                 composable(BottomNavItem.Appointments.route) { AppointmentsScreen() }
                 composable(BottomNavItem.Profile.route) { ProfileScreen() }

@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.sidharth.swaasth.ui.theme.Grey800
+import com.sidharth.swaasth.ui.theme.Grey80
 
 @Composable
 fun OnBoardingScreen() {
@@ -57,14 +57,14 @@ fun OnBoardingScreen() {
             text = "Introducing Swaasth",
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
-            color = Grey800,
+            color = Grey80,
             textAlign = TextAlign.Center
         )
         Text(
             text = "With Swaasth, accessing healthcare services is effortless and efficient. Take control of your health journey with the convenience of Swaasth at your fingertips.",
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
-            color = Grey800,
+            color = Grey80,
             textAlign = TextAlign.Center
         )
 

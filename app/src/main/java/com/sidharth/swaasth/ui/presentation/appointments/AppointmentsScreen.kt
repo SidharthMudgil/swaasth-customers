@@ -30,7 +30,7 @@ import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.presentation.appointments.component.AppointmentsList
 import com.sidharth.swaasth.ui.theme.Black
 import com.sidharth.swaasth.ui.theme.Blue80
-import com.sidharth.swaasth.ui.theme.Grey100
+import com.sidharth.swaasth.ui.theme.Grey10
 import com.sidharth.swaasth.ui.theme.Transparent
 import com.sidharth.swaasth.ui.theme.White
 
@@ -82,10 +82,10 @@ fun AppointmentsScreen() {
             divider = {
 
             },
-            containerColor = Grey100,
+            containerColor = Grey10,
             modifier = Modifier
                 .clip(RoundedCornerShape(12.dp))
-                .background(Grey100)
+                .background(Grey10)
         ) {
             tabs.forEachIndexed { index, title ->
                 Tab(
