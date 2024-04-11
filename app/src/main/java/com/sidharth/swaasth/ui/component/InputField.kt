@@ -35,6 +35,7 @@ import com.sidharth.swaasth.ui.theme.Black
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Grey10
 import com.sidharth.swaasth.ui.theme.Grey20
+import com.sidharth.swaasth.ui.theme.Grey80
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
@@ -42,6 +43,7 @@ fun InputField(
     hint: String,
     onValueChange: () -> Unit,
     elevation: Dp = 0.dp,
+    prefix: String? = null,
     outlined: Boolean = false,
     readOnly: Boolean = false,
     leadingIcon: ImageVector? = null,
@@ -70,6 +72,7 @@ fun InputField(
                 color = Black,
                 fontSize = 18.sp
             ),
+
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
@@ -85,7 +88,7 @@ fun InputField(
                         Modifier
                     }
                 )
-                .onFocusChanged { state -> focused = state.isFocused}
+                .onFocusChanged { state -> focused = state.isFocused }
                 .background(White)
                 .padding(12.dp),
             decorationBox = {
@@ -96,6 +99,13 @@ fun InputField(
                 ) {
                     leadingIcon?.let {
                         Icon(imageVector = it, contentDescription = null)
+                    }
+                    prefix?.let {
+                        Text(
+                            text = prefix,
+                            color = Grey80,
+                            modifier = Modifier.background(Color.Transparent)
+                        )
                     }
                     Box(modifier = Modifier.weight(1f)) {
                         if (query.isEmpty()) {
@@ -169,6 +179,19 @@ private fun OutlinedInputFieldPreview() {
     InputField(
         hint = "Search Doctor",
         outlined = true,
+        onValueChange = {
+
+        }
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PrefixInputFieldPreview() {
+    InputField(
+        hint = "Search Doctor",
+        outlined = true,
+        prefix = "+91",
         onValueChange = {
 
         }
