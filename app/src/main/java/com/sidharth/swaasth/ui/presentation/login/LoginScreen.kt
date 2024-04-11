@@ -233,7 +233,7 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.padding(top = 16.dp))
             Text(text = "By continuing, you are agree to our")
             Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 ClickableText(
                     text = buildAnnotatedString {

@@ -86,4 +86,5 @@ dependencies {
     // ui
     implementation(libs.androidx.material.icons.extended.android)
     implementation(libs.dotsindicator)
+    implementation("com.github.composeuisuite:ohteepee:1.0.8")
 }
