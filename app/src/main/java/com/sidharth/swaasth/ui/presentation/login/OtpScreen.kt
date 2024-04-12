@@ -41,7 +41,10 @@ import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
-fun OtpScreen(onClick: () -> Unit) {
+fun OtpScreen(
+    onClick: () -> Unit,
+    onBackClick: () -> Unit
+) {
     var otpValue by remember { mutableStateOf("") }
 
     Scaffold {
@@ -55,7 +58,7 @@ fun OtpScreen(onClick: () -> Unit) {
                 .verticalScroll(rememberScrollState())
         ) {
             TextButton(
-                onClick = {},
+                onClick = onBackClick,
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .align(Alignment.Start)
@@ -167,7 +170,7 @@ fun OtpScreen(onClick: () -> Unit) {
 @Preview
 @Composable
 private fun OtpScreenPreview() {
-    OtpScreen {
+    OtpScreen({}) {
 
     }
 }

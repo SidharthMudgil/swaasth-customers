@@ -36,7 +36,10 @@ import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Grey40
 
 @Composable
-fun PaymentMethodScreen() {
+fun PaymentMethodScreen(
+    onClick: () -> Unit,
+    onBackClick: () -> Unit
+) {
     var selected by remember { mutableIntStateOf(0) }
 
     Scaffold {
@@ -48,7 +51,7 @@ fun PaymentMethodScreen() {
                 .fillMaxWidth()
         ) {
             TextButton(
-                onClick = {},
+                onClick = onBackClick,
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .align(Alignment.Start)
@@ -126,9 +129,7 @@ fun PaymentMethodScreen() {
 
                 Button(
                     shape = RoundedCornerShape(12.dp),
-                    onClick = {
-
-                    }, modifier = Modifier.fillMaxWidth()
+                    onClick = onClick, modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
                         text = "Next",
@@ -144,5 +145,5 @@ fun PaymentMethodScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun PaymentMethodScreenPreview() {
-    PaymentMethodScreen()
+    PaymentMethodScreen({}, {})
 }

@@ -33,7 +33,10 @@ import com.sidharth.swaasth.ui.theme.Purple
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
-fun GreetingsCard() {
+fun GreetingsCard(
+    onQrClick: () -> Unit,
+    onNotificationClick: () -> Unit,
+) {
     Card(
         shape = RoundedCornerShape(bottomEnd = 40.dp, bottomStart = 40.dp),
         modifier = Modifier
@@ -70,16 +73,16 @@ fun GreetingsCard() {
                         contentDescription = "QR Scanner",
                         colorFilter = ColorFilter.tint(White),
                         modifier = Modifier.size(28.dp).clickable {
-
+                            onQrClick()
                         }
                     )
 
                     Image(
                         imageVector = Icons.Rounded.Notifications,
-                        contentDescription = "QR Scanner",
+                        contentDescription = "Notifications",
                         colorFilter = ColorFilter.tint(White),
                         modifier = Modifier.size(28.dp).clickable {
-
+                            onNotificationClick()
                         }
                     )
                 }
@@ -105,5 +108,5 @@ fun GreetingsCard() {
 @Preview
 @Composable
 private fun GreetingsCardPreview() {
-    GreetingsCard()
+    GreetingsCard({}, {})
 }

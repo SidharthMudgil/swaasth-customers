@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.rounded.AccessTime
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material.icons.rounded.ArrowDropDown
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,7 +31,10 @@ import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.theme.Blue80
 
 @Composable
-fun PatientDetailsScreen() {
+fun PatientDetailsScreen(
+    onClick: () -> Unit,
+    onBackClick: () -> Unit
+) {
     Scaffold {
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -40,7 +45,7 @@ fun PatientDetailsScreen() {
                 .fillMaxWidth()
         ) {
             TextButton(
-                onClick = {},
+                onClick = onBackClick,
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .align(Alignment.Start)
@@ -97,6 +102,19 @@ fun PatientDetailsScreen() {
                 outlined = true,
                 readOnly = true
             )
+
+            Spacer(modifier = Modifier.weight(1f))
+            Button(
+                shape = RoundedCornerShape(12.dp),
+                onClick = onClick,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "Next",
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
         }
     }
 }
@@ -104,5 +122,5 @@ fun PatientDetailsScreen() {
 @Preview
 @Composable
 private fun PatientDetailsScreenPreview() {
-    PatientDetailsScreen()
+    PatientDetailsScreen({}, {})
 }

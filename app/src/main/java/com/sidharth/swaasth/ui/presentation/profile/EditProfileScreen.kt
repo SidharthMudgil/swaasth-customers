@@ -34,7 +34,10 @@ import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Grey20
 
 @Composable
-fun EditProfileScreen() {
+fun EditProfileScreen(
+    onClick: () -> Unit,
+    onBackClick: () -> Unit
+) {
     Scaffold {
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -45,7 +48,7 @@ fun EditProfileScreen() {
                 .padding(16.dp)
         ) {
             TextButton(
-                onClick = {},
+                onClick = onBackClick,
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .align(Alignment.Start)
@@ -114,9 +117,7 @@ fun EditProfileScreen() {
 
             Spacer(modifier = Modifier.weight(1f))
             Button(
-                onClick = {
-
-                },
+                onClick = onClick,
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -135,5 +136,5 @@ fun EditProfileScreen() {
 @Preview
 @Composable
 private fun EditProfileScreenPreview() {
-    EditProfileScreen()
+    EditProfileScreen({}, {})
 }

@@ -53,7 +53,9 @@ import com.sidharth.swaasth.ui.theme.White
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppointmentScreen(
-    doctor: Doctor
+    doctor: Doctor,
+    onBookClick: () -> Unit,
+    onBackClick: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
     var expandedState by remember { mutableStateOf(false) }
@@ -70,7 +72,7 @@ fun AppointmentScreen(
                 .verticalScroll(scrollState)
         ) {
             TextButton(
-                onClick = {},
+                onClick = onBackClick,
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .align(Alignment.Start)
@@ -160,7 +162,7 @@ fun AppointmentScreen(
                 OutlinedTextField(
                     value = selectedItem,
                     shape = RoundedCornerShape(12.dp),
-                    onValueChange = { selectedItem = it },
+                    onValueChange = { value -> selectedItem = value },
                     readOnly = true,
                     trailingIcon = {
                         ExposedDropdownMenuDefaults.TrailingIcon(
@@ -195,7 +197,7 @@ fun AppointmentScreen(
 
             Spacer(modifier = Modifier.weight(1f))
             Button(
-                onClick = {},
+                onClick = onBookClick,
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -214,5 +216,5 @@ fun AppointmentScreen(
 @Preview(showBackground = true)
 @Composable
 private fun AppointmentScreenPreview() {
-    AppointmentScreen(DemoConstants.demoDoctors[0])
+    AppointmentScreen(DemoConstants.demoDoctors[0], {}, {})
 }

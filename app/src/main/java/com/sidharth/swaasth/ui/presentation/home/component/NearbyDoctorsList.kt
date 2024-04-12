@@ -3,6 +3,7 @@ package com.sidharth.swaasth.ui.presentation.home.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -44,7 +45,9 @@ import com.sidharth.swaasth.ui.theme.Grey80
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
-fun NearbyDoctorsList() {
+fun NearbyDoctorsList(
+    onDoctorClick: () -> Unit
+) {
     val doctors = DemoConstants.demoDoctors
 
     Column(
@@ -80,7 +83,7 @@ fun NearbyDoctorsList() {
             modifier = Modifier.heightIn(max = 1000.dp)
         ) {
             items(doctors) { doctor ->
-                DoctorCard(doctor)
+                DoctorCard(doctor, onDoctorClick)
             }
         }
     }
@@ -88,7 +91,8 @@ fun NearbyDoctorsList() {
 
 @Composable
 fun DoctorCard(
-    doctor: Doctor
+    doctor: Doctor,
+    onDoctorClick: () -> Unit
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -97,7 +101,10 @@ fun DoctorCard(
             .fillMaxWidth()
             .wrapContentHeight()
             .border(1.dp, Grey10, RoundedCornerShape(12.dp))
-            .padding(8.dp),
+            .padding(8.dp)
+            .clickable {
+                onDoctorClick()
+            },
     ) {
         AsyncImage(
             model = doctor.image,
@@ -171,11 +178,13 @@ fun DoctorCard(
 @Preview(showBackground = true)
 @Composable
 private fun DoctorCardPreview() {
-    DoctorCard(DemoConstants.demoDoctors[0])
+    DoctorCard(DemoConstants.demoDoctors[0]) {}
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun NearbyDoctorsListPreview() {
-    NearbyDoctorsList()
+    NearbyDoctorsList {
+        
+    }
 }

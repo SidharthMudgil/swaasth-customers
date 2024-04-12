@@ -28,7 +28,7 @@ fun NavGraphBuilder.authNavGraph(
         }
 
         composable(AuthGraph.OTP.route) {
-            OtpScreen {
+            OtpScreen({ navController.popBackStack() }) {
                 navController.navigate(Graph.HOME) {
                     popUpTo(Graph.AUTHENTICATION) { inclusive = true }
                 }

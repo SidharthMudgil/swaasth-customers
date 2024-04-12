@@ -15,7 +15,11 @@ import com.sidharth.swaasth.ui.presentation.home.component.NearbyDoctorsList
 import com.sidharth.swaasth.ui.presentation.home.component.SpecialitiesList
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onQrClick: () -> Unit,
+    onNotificationClick: () -> Unit,
+    onDoctorClick: () -> Unit,
+) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -24,7 +28,7 @@ fun HomeScreen() {
             .fillMaxHeight()
     ) {
         item {
-            GreetingsCard()
+            GreetingsCard(onQrClick, onNotificationClick)
         }
         item {
             BannersList()
@@ -33,7 +37,7 @@ fun HomeScreen() {
             SpecialitiesList()
         }
         item {
-            NearbyDoctorsList()
+            NearbyDoctorsList(onDoctorClick)
         }
     }
 }
@@ -41,5 +45,5 @@ fun HomeScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen({}, {}, {})
 }

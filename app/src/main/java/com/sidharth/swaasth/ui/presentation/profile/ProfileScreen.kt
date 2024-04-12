@@ -34,7 +34,10 @@ import com.sidharth.swaasth.ui.presentation.profile.component.ProfileButton
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(
+    onMediaClick: () -> Unit,
+    onEditClick: () -> Unit,
+) {
     val user = DemoConstants.demoUser
 
     Column(
@@ -84,7 +87,7 @@ fun ProfileScreen() {
             icon = Icons.Rounded.Edit,
             title = "Edit profile"
         ) {
-
+            onEditClick()
         }
 
         Spacer(modifier = Modifier.padding(bottom = 12.dp))
@@ -92,7 +95,7 @@ fun ProfileScreen() {
             icon = Icons.Rounded.LocalHospital,
             title = "Add Prescription"
         ) {
-
+            onMediaClick()
         }
 
         Spacer(modifier = Modifier.padding(bottom = 8.dp))
@@ -100,7 +103,7 @@ fun ProfileScreen() {
             icon = Icons.Rounded.CalendarToday,
             title = "Add Report"
         ) {
-
+            onMediaClick()
         }
 
         Spacer(modifier = Modifier.padding(bottom = 8.dp))
@@ -132,5 +135,5 @@ fun ProfileScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun ProfileScreenPreview() {
-    ProfileScreen()
+    ProfileScreen({}, {})
 }
