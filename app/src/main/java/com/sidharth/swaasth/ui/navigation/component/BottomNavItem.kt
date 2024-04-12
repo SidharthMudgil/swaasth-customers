@@ -1,4 +1,4 @@
-package com.sidharth.swaasth.ui.navigation
+package com.sidharth.swaasth.ui.navigation.component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Groups

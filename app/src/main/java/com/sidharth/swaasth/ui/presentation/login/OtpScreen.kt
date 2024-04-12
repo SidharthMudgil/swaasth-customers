@@ -41,7 +41,7 @@ import com.sidharth.swaasth.ui.theme.Grey20
 import com.sidharth.swaasth.ui.theme.White
 
 @Composable
-fun OtpScreen() {
+fun OtpScreen(onClick: () -> Unit) {
     var otpValue by remember { mutableStateOf("") }
 
     Scaffold {
@@ -96,11 +96,20 @@ fun OtpScreen() {
                             color = Blue80
                         )
                     ),
+                    activeCellConfig = OhTeePeeCellConfiguration.withDefaults(
+                        borderColor = Blue80,
+                        borderWidth = 2.dp,
+                        shape = RoundedCornerShape(12.dp),
+                        textStyle = TextStyle(
+                            color = Blue80
+                        )
+                    ),
                     cellModifier = Modifier
                         .padding(horizontal = 4.dp)
                         .size(60.dp)
                 ),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .wrapContentWidth(Alignment.Start)
             )
 
@@ -134,14 +143,15 @@ fun OtpScreen() {
 
             Spacer(modifier = Modifier.weight(1f))
             Button(
-                onClick = {
-                },
+                onClick = onClick,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     text = "Submit",
                     fontSize = 18.sp,
-                    color = White
+                    color = White,
+                    modifier = Modifier.padding(12.dp, 8.dp)
                 )
             }
             Text(
@@ -157,5 +167,7 @@ fun OtpScreen() {
 @Preview
 @Composable
 private fun OtpScreenPreview() {
-    OtpScreen()
+    OtpScreen {
+
+    }
 }

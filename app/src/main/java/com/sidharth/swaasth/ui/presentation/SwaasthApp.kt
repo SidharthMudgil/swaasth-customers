@@ -1,27 +1,19 @@
 package com.sidharth.swaasth.ui.presentation
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.sidharth.swaasth.ui.navigation.BottomNavItem
-import com.sidharth.swaasth.ui.presentation.appointments.AppointmentsScreen
-import com.sidharth.swaasth.ui.presentation.login.OtpScreen
-import com.sidharth.swaasth.ui.presentation.profile.ProfileScreen
-import com.sidharth.swaasth.ui.presentation.queue.LiveQueueScreen
+import com.sidharth.swaasth.ui.navigation.RootNavigationGraph
+import com.sidharth.swaasth.ui.navigation.component.BottomNavItem
 import com.sidharth.swaasth.ui.theme.SwaasthTheme
 
 @Composable
@@ -29,20 +21,21 @@ fun SwaasthApp(
     navController: NavHostController
 ) {
     SwaasthTheme {
-        Scaffold(
-            bottomBar = { BottomNavigationBar(navController) }
-        ) {
-            NavHost(
-                navController = navController,
-                startDestination = BottomNavItem.Home.route,
-                modifier = Modifier.padding(it)
-            ) {
-                composable(BottomNavItem.Home.route) { OtpScreen() }
-                composable(BottomNavItem.LiveQueue.route) { LiveQueueScreen() }
-                composable(BottomNavItem.Appointments.route) { AppointmentsScreen() }
-                composable(BottomNavItem.Profile.route) { ProfileScreen() }
-            }
-        }
+        RootNavigationGraph(navController = rememberNavController())
+//        Scaffold(
+//            bottomBar = { BottomNavigationBar(navController) }
+//        ) {
+//            NavHost(
+//                navController = navController,
+//                startDestination = BottomNavItem.Home.route,
+//                modifier = Modifier.padding(it)
+//            ) {
+//                composable(BottomNavItem.Home.route) { HomeScreen() }
+//                composable(BottomNavItem.LiveQueue.route) { LiveQueueScreen() }
+//                composable(BottomNavItem.Appointments.route) { AppointmentsScreen() }
+//                composable(BottomNavItem.Profile.route) { ProfileScreen() }
+//            }
+//        }
     }
 }
 

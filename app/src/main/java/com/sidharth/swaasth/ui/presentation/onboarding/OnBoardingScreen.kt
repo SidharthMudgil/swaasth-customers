@@ -25,7 +25,7 @@ import coil.compose.AsyncImage
 import com.sidharth.swaasth.ui.theme.Grey80
 
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(onClick: () -> Unit) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -70,7 +70,7 @@ fun OnBoardingScreen() {
 
         Spacer(modifier = Modifier.padding(bottom = 64.dp))
         Button(
-            onClick = {},
+            onClick = onClick,
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
@@ -87,5 +87,7 @@ fun OnBoardingScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun OnBoardingScreenPreview() {
-    OnBoardingScreen()
+    OnBoardingScreen {
+
+    }
 }

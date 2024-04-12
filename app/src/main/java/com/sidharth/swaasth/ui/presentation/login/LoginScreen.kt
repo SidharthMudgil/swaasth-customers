@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -53,7 +53,7 @@ import com.sidharth.swaasth.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onClick: () -> Unit) {
     var prefix by remember { mutableStateOf("+91") }
     var expandedState by remember { mutableStateOf(false) }
 
@@ -71,8 +71,7 @@ fun LoginScreen() {
                 model = "",
                 contentDescription = null,
                 modifier = Modifier
-                    .fillMaxHeight(.5f)
-                    .aspectRatio(1f)
+                    .height(300.dp)
                     .background(Grey10)
             )
 
@@ -190,9 +189,7 @@ fun LoginScreen() {
 
             Spacer(modifier = Modifier.padding(top = 16.dp))
             Button(
-                onClick = {
-
-                },
+                onClick = onClick,
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -269,5 +266,7 @@ fun LoginScreen() {
 @Preview
 @Composable
 private fun LoginScreenPreview() {
-    LoginScreen()
+    LoginScreen {
+
+    }
 }
