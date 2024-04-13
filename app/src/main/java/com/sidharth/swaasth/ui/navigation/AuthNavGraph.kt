@@ -28,11 +28,15 @@ fun NavGraphBuilder.authNavGraph(
         }
 
         composable(AuthGraph.OTP.route) {
-            OtpScreen({ navController.popBackStack() }) {
-                navController.navigate(Graph.HOME) {
-                    popUpTo(Graph.AUTHENTICATION) { inclusive = true }
+            OtpScreen(
+                onClick = {
+                    navController.navigate(Graph.MAIN) {
+                    }
+                },
+                onBackClick = {
+                    navController.popBackStack()
                 }
-            }
+            )
         }
     }
 }

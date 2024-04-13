@@ -1,40 +1,22 @@
 package com.sidharth.swaasth.ui.navigation
 
-import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.ui.presentation.appointment.AppointmentScreen
 import com.sidharth.swaasth.ui.presentation.appointment.PatientDetailsScreen
-import com.sidharth.swaasth.ui.presentation.home.HomeScreen
 import com.sidharth.swaasth.ui.presentation.notification.NotificationsScreen
 import com.sidharth.swaasth.ui.presentation.payment.PaymentMethodScreen
 
-@Composable
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController
 ) {
-    NavHost(
-        navController = navController,
+    navigation(
         route = Graph.HOME,
-        startDestination = HomeGraph.Home.route
+        startDestination = HomeGraph.Appointment.route
     ) {
-        composable(HomeGraph.Home.route) {
-            HomeScreen(
-                onQrClick = {
-                    navController.navigate(HomeGraph.QrScanner.route)
-                },
-                onNotificationClick = {
-                    navController.navigate(HomeGraph.Notifications.route)
-                },
-                onDoctorClick = {
-                    navController.navigate(HomeGraph.Appointment.route)
-                }
-            )
-        }
-
         composable(HomeGraph.Notifications.route) {
             NotificationsScreen()
         }
@@ -82,7 +64,6 @@ fun NavGraphBuilder.homeNavGraph(
 }
 
 sealed class HomeGraph(val route: String) {
-    data object Home : HomeGraph("HOME")
     data object Appointment : HomeGraph("APPOINTMENT")
     data object Notifications : HomeGraph("NOTIFICATIONS")
     data object QrScanner : HomeGraph("QR_SCANNER")
