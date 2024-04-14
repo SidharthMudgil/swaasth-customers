@@ -12,7 +12,7 @@ val Indigo20 = Color(0xFFC3D2FF)
 
 val Purple = Color(0xFF9B7985)
 val Green = Color(0xFF00AA0F)
-val Red = Color(0xFFAA000F)
+val Red = Color(0xFFFF0000)
 
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
