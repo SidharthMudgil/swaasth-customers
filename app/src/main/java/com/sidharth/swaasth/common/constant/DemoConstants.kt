@@ -1,12 +1,13 @@
 package com.sidharth.swaasth.common.constant
 
+import com.sidharth.swaasth.R
 import com.sidharth.swaasth.common.constant.DemoConstants.demoDoctors
 import com.sidharth.swaasth.common.constant.DemoConstants.doctorImages
 import com.sidharth.swaasth.common.constant.DemoConstants.firstNames
 import com.sidharth.swaasth.common.constant.DemoConstants.lastNames
 import com.sidharth.swaasth.common.constant.DemoConstants.notificationMessages
+import com.sidharth.swaasth.common.constant.DemoConstants.specialities
 import com.sidharth.swaasth.common.enums.Gender
-import com.sidharth.swaasth.common.enums.MedicalField
 import com.sidharth.swaasth.domain.model.Appointment
 import com.sidharth.swaasth.domain.model.Doctor
 import com.sidharth.swaasth.domain.model.Notification
@@ -17,52 +18,33 @@ import kotlin.random.Random
 
 object DemoConstants {
     val demoBanners = listOf(
-        "https://as1.ftcdn.net/v2/jpg/01/96/63/34/1000_F_196633449_esdLHOjO3QxrxVF8WWTRdDc501w1Xtm1.jpg",
-        "https://img.freepik.com/free-vector/tiny-doctors-patients-near-hospital-flat-vector-illustration-therapist-face-mask-saying-goodbye-cured-people-near-medical-building-ambulance-emergency-clinic-concept_74855-25338.jpg",
-        "https://static.vecteezy.com/system/resources/previews/004/493/193/original/hospital-building-for-healthcare-background-illustration-with-ambulance-car-doctor-patient-nurses-and-medical-clinic-exterior-vector.jpg"
+        R.drawable.banner1,
+        R.drawable.banner2,
+        R.drawable.banner3,
+    )
+
+    val specialities = listOf(
+        "General Physician", "Gynaecologist",
+        "Dentist", "Dermatologist",
     )
 
     val demoSpecialities = listOf(
         Speciality(
-            MedicalField.CHIROPRACTOR,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+            "General Physician",
+            R.drawable.physician
         ),
         Speciality(
-            MedicalField.BIOKINETICIST,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+            "Gynaecologist",
+            R.drawable.gynaecologist
         ),
         Speciality(
-            MedicalField.ATHLETIC_TRAINER,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+            "Dentist",
+            R.drawable.dentist
         ),
         Speciality(
-            MedicalField.YOGA_INSTRUCTOR,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
+            "Dermatologist",
+            R.drawable.dermatologist
         ),
-        Speciality(
-            MedicalField.MASSAGE_THERAPIST,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
-        ),
-        Speciality(
-            MedicalField.RADIOLOGIST,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
-        ),
-        Speciality(
-            MedicalField.RADIOLOGY_PHYSICIAN_ASSISTANT,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
-        ),
-        Speciality(
-            MedicalField.RADIOTHERAPIST,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
-        ),
-        Speciality(
-            MedicalField.RADIOGRAPHER,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
-        ),
-        Speciality(
-            MedicalField.CT_RADIOGRAPHER,
-            "https://static.vecteezy.com/system/resources/previews/028/860/787/original/statoscope-medical-3d-icon-png.png"
-        )
     )
 
     val firstNames = listOf(
@@ -226,12 +208,7 @@ object DemoConstants {
         "https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg",
         "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg",
         "https://img.freepik.com/premium-photo/portrait-smiling-doctor-white-uniform-standing-with-crossed-hands-grey-background_168410-1747.jpg",
-        "https://thumbs.dreamstime.com/b/sexy-sensual-blonde-woman-beautiful-girl-spring-romantic-casual-woman-portrait-beautiful-girl-outdoor-close-up-sexy-sensual-blonde-242365361.jpg",
-        "https://c4.wallpaperflare.com/wallpaper/810/440/905/hot-girl-hd-1920x1200-wallpaper-preview.jpg",
-        "https://c8.alamy.com/zooms/9/d52391dcf89a4749b4b9cd160792e88d/gd4wmf.jpg",
         "https://t3.ftcdn.net/jpg/05/87/35/38/360_F_587353890_dEdFmxwUWJNtYo5nOh2rLd8uelv75LMT.jpg",
-        "https://img.freepik.com/premium-photo/indian-medical-students-smiling-giving-happy-expression_130568-403.jpg",
-        "https://img.freepik.com/premium-photo/indian-medical-student-group-smiling-giving-happy-expression_130568-401.jpg",
         "https://t3.ftcdn.net/jpg/02/79/63/30/360_F_279633092_quePrl3OjoTbJi4tYy62BSko7zB8QO36.jpg"
     )
 
@@ -263,7 +240,10 @@ object DemoConstants {
             phone = "9638772639",
             email = "${firstNames.random()}@gmail.com",
             sex = Gender.entries.random(),
-            dob = System.currentTimeMillis() - 1000 * 60L * 60 * 24 * 30 * 12 * (Random.nextInt(18,40)),
+            dob = System.currentTimeMillis() - 1000 * 60L * 60 * 24 * 30 * 12 * (Random.nextInt(
+                18,
+                40
+            )),
             image = doctorImages.random()
         )
     }
@@ -349,7 +329,7 @@ private fun generateRandomDoctors(count: Int): List<Doctor> {
     for (i in 1..count) {
         val availableDaysOfMonth = mutableListOf<Long>().apply {
             repeat(30) {
-                if  (Random.nextBoolean()) {
+                if (Random.nextBoolean()) {
                     val timestamp = 1000 * 60L * 60 * 24 * it
                     add(timestamp)
                 }
@@ -370,7 +350,7 @@ private fun generateRandomDoctors(count: Int): List<Doctor> {
             about = "Has Extensive Scientific Knowledge: Good dental surgeon should have a wealth of knowledge about teeth and oral hygiene. They are able to quickly identify problems as well as their most effective treatments.",
             workplace = hospitals.random(),
             gender = if (Random.nextBoolean()) "Male" else "Female",
-            speciality = MedicalField.entries.toTypedArray().random(),
+            speciality = specialities.random(),
             experience = Random.nextInt(1, 41),
             patientsCount = Random.nextInt(0, 1000),
             rating = Random.nextDouble(1.0, 5.0),

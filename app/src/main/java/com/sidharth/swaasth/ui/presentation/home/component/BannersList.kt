@@ -1,6 +1,8 @@
 package com.sidharth.swaasth.ui.presentation.home.component
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,9 +19,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.ui.theme.Blue20
 import com.sidharth.swaasth.ui.theme.Blue80
@@ -46,15 +48,16 @@ fun BannersList() {
                 .fillMaxWidth()
                 .wrapContentHeight()
         ) {
-            AsyncImage(
-                model = posters[it],
+            Image(
+                painter = painterResource(id = posters[it]),
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(150.dp)
                     .padding(horizontal = 16.dp)
                     .clip(RoundedCornerShape(12.dp))
+                    .background(Blue80)
             )
         }
 

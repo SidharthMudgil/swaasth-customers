@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -38,12 +39,12 @@ fun OnBoardingScreen(onClick: () -> Unit) {
             painter = painterResource(id = R.drawable.logo_hor),
             contentDescription = null,
             contentScale = ContentScale.Crop,
+            alignment = Alignment.Center,
             modifier = Modifier
-                .fillMaxWidth()
-                .height(80.dp)
+                .height(150.dp)
+                .width(400.dp)
         )
 
-        Spacer(modifier = Modifier.padding(bottom = 32.dp))
         Image(
             painter = painterResource(id = R.drawable.joinus),
             contentDescription = null,

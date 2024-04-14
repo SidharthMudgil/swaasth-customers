@@ -128,9 +128,7 @@ fun DoctorCard(
             )
 
             Text(
-                text = "${
-                    doctor.speciality.name.substringBefore("_").trim().lowercase()
-                }, ${doctor.workplace}",
+                text = "${doctor.speciality}, ${doctor.workplace}",
                 color = Grey20,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,

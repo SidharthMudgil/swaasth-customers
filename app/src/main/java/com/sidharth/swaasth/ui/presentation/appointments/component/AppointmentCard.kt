@@ -80,9 +80,7 @@ fun AppointmentCard(
                 )
 
                 Text(
-                    text = "${
-                        appointment.doctor.speciality.name.substringBefore("_").trim().lowercase()
-                    }, ${appointment.doctor.workplace}",
+                    text = "${appointment.doctor.speciality}, ${appointment.doctor.workplace}",
                     color = Grey20,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
