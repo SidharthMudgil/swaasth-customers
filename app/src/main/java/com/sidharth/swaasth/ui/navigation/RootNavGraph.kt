@@ -10,17 +10,19 @@ import com.sidharth.swaasth.ui.presentation.splash.SplashScreen
 
 @Composable
 fun RootNavigationGraph(navController: NavHostController) {
+    val splashScreen = "SPLASH"
+
     NavHost(
         navController = navController,
         route = Graph.ROOT,
         startDestination = Graph.SPLASH
     ) {
         navigation(
-            route = Graph.SPLASH,
-            startDestination = "SPLASH"
+            startDestination = splashScreen,
+            route = Graph.SPLASH
         ) {
-            composable(route = "SPLASH") {
-                SplashScreen()
+            composable(splashScreen) {
+                SplashScreen(navController)
             }
         }
         authNavGraph(navController = navController)
