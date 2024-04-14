@@ -1,5 +1,6 @@
 package com.sidharth.swaasth.ui.presentation.appointment
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.Button
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -29,6 +32,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,6 +64,9 @@ fun AppointmentScreen(
     val scrollState = rememberScrollState()
     var expandedState by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf("Select a time slot") }
+
+    val datePickerState = rememberDatePickerState()
+    var showDatePicker by remember { mutableStateOf(false) }
 
     Scaffold {
         Column(
@@ -134,7 +141,9 @@ fun AppointmentScreen(
                     imageVector = Icons.Filled.CalendarMonth,
                     tint = Blue80,
                     contentDescription = null,
-                    modifier = Modifier.size(30.dp)
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clickable { showDatePicker = true }
                 )
             }
             LazyRow(
@@ -208,6 +217,17 @@ fun AppointmentScreen(
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.padding(12.dp, 8.dp)
                 )
+            }
+
+            if (showDatePicker) {
+                DatePickerDialog(
+                    onDismissRequest = { showDatePicker = false },
+                    confirmButton = { /*TODO*/ },
+                    dismissButton = { /*TODO*/ }
+                )
+                {
+                    DatePicker(state = datePickerState)
+                }
             }
         }
     }
