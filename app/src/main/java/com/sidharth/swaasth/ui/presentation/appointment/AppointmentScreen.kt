@@ -222,8 +222,20 @@ fun AppointmentScreen(
             if (showDatePicker) {
                 DatePickerDialog(
                     onDismissRequest = { showDatePicker = false },
-                    confirmButton = { /*TODO*/ },
-                    dismissButton = { /*TODO*/ }
+                    confirmButton = {
+                        TextButton(
+                            onClick = {
+                                showDatePicker = false
+                            }
+                        ) { Text("OK") }
+                    },
+                    dismissButton = {
+                        TextButton(
+                            onClick = {
+                                showDatePicker = false
+                            }
+                        ) { Text("Cancel") }
+                    }
                 )
                 {
                     DatePicker(state = datePickerState)
