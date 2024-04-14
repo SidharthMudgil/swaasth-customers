@@ -1,5 +1,6 @@
 package com.sidharth.swaasth.ui.presentation.login
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.ClickableText
@@ -38,13 +40,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
+import com.sidharth.swaasth.R
 import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.theme.Grey10
 import com.sidharth.swaasth.ui.theme.Grey20
@@ -67,12 +71,12 @@ fun LoginScreen(onClick: () -> Unit) {
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
-            AsyncImage(
-                model = "",
+            Image(
+                painter = painterResource(id = R.drawable.doctor),
                 contentDescription = null,
                 modifier = Modifier
                     .height(300.dp)
-                    .background(Grey10)
+                    .fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.padding(top = 30.dp))
@@ -219,18 +223,22 @@ fun LoginScreen(onClick: () -> Unit) {
             }
 
             Spacer(modifier = Modifier.padding(top = 16.dp))
-            AsyncImage(
-                model = "",
+            Image(
+                painter = painterResource(id = R.drawable.google),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(60.dp)
-                    .background(Grey10)
+                    .border(1.dp, Grey10, CircleShape)
+                    .size(48.dp)
             )
 
             Spacer(modifier = Modifier.padding(top = 16.dp))
-            Text(text = "By continuing, you are agree to our")
+            Text(
+                text = "By continuing, you are agree to our",
+                fontSize = 14.sp
+            )
             Row(
-                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                modifier = Modifier.padding(top = 4.dp)
             ) {
                 ClickableText(
                     text = buildAnnotatedString {
@@ -238,7 +246,11 @@ fun LoginScreen(onClick: () -> Unit) {
                     },
                     onClick = {
 
-                    }
+                    },
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        color = Grey20
+                    )
                 )
 
                 ClickableText(
@@ -247,7 +259,11 @@ fun LoginScreen(onClick: () -> Unit) {
                     },
                     onClick = {
 
-                    }
+                    },
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        color = Grey20
+                    )
                 )
 
                 ClickableText(
@@ -256,7 +272,11 @@ fun LoginScreen(onClick: () -> Unit) {
                     },
                     onClick = {
 
-                    }
+                    },
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        color = Grey20
+                    )
                 )
             }
         }
