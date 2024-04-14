@@ -51,6 +51,8 @@ fun AppointmentsScreen() {
         }
     }
 
+    upcomingAppointments.sortByDescending { it.timestamp }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
