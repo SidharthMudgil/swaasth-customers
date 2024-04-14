@@ -1,6 +1,7 @@
 package com.sidharth.swaasth.ui.navigation.component
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.CalendarToday
 import androidx.compose.material.icons.rounded.Groups
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Person
@@ -15,7 +16,7 @@ sealed class BottomNavItem(
     )
 
     data object Appointments : BottomNavItem(
-        "Appointments", Icons.Rounded.Home
+        "Appointments", Icons.Rounded.CalendarToday
     )
 
     data object LiveQueue : BottomNavItem(

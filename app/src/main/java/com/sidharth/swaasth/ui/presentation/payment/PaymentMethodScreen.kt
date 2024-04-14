@@ -55,7 +55,7 @@ fun PaymentMethodScreen(
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .align(Alignment.Start)
-                    .padding(bottom = 16.dp)
+                    .padding(16.dp)
                     .defaultMinSize(1.dp, 1.dp),
             ) {
                 Icon(
@@ -68,7 +68,7 @@ fun PaymentMethodScreen(
             }
 
             Text(
-                text = "Patients Details",
+                text = "Payment method",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.CenterHorizontally)

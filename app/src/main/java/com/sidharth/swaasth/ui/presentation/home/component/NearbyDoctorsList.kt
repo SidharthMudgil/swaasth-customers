@@ -3,7 +3,6 @@ package com.sidharth.swaasth.ui.presentation.home.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -101,10 +100,7 @@ fun DoctorCard(
             .fillMaxWidth()
             .wrapContentHeight()
             .border(1.dp, Grey10, RoundedCornerShape(12.dp))
-            .padding(8.dp)
-            .clickable {
-                onDoctorClick()
-            },
+            .padding(8.dp),
     ) {
         AsyncImage(
             model = doctor.image,
@@ -157,9 +153,7 @@ fun DoctorCard(
                 Spacer(modifier = Modifier.weight(1f))
 
                 FilledTonalButton(
-                    onClick = {
-
-                    },
+                    onClick = onDoctorClick,
                     colors = ButtonDefaults.filledTonalButtonColors(
                         containerColor = Grey10,
                         contentColor = Grey80
