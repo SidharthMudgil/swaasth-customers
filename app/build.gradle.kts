@@ -21,7 +21,9 @@ android {
             useSupportLibrary = true
         }
     }
-
+    buildFeatures {
+        buildConfig = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -86,5 +88,5 @@ dependencies {
     // ui
     implementation(libs.androidx.material.icons.extended.android)
     implementation(libs.dotsindicator)
-    implementation("com.github.composeuisuite:ohteepee:1.0.8")
+    implementation(libs.ohteepee)
 }

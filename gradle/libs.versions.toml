@@ -15,6 +15,7 @@ activityCompose = "1.8.2"
 composeBom = "2023.08.00"
 materialIconsExtendedAndroid = "1.6.3"
 navigationCompose = "2.7.7"
+ohteepee = "1.0.8"
 roomCompiler = "2.6.1"
 roomRuntime = "2.6.1"
 speld = "1.0.1"
@@ -44,6 +45,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
+ohteepee = { module = "com.github.composeuisuite:ohteepee", version.ref = "ohteepee" }
 speld = { module = "com.yogeshpaliyal:speld", version.ref = "speld" }
 
 [plugins]
