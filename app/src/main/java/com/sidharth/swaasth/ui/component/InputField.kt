@@ -48,6 +48,8 @@ fun InputField(
     readOnly: Boolean = false,
     leadingIcon: ImageVector? = null,
     trailingIcon: ImageVector? = null,
+    onClick: () -> Unit = {},
+    enabled: Boolean = true
 ) {
     var query by remember { mutableStateOf("") }
     var focused by remember { mutableStateOf(false) }
@@ -55,6 +57,7 @@ fun InputField(
     Surface(
         shadowElevation = elevation,
         shape = RoundedCornerShape(12.dp),
+        onClick = onClick,
         modifier = Modifier
             .wrapContentHeight()
     ) {
@@ -64,7 +67,7 @@ fun InputField(
                 query = it
                 onValueChange()
             },
-
+            enabled = enabled,
             readOnly = readOnly,
             maxLines = 1,
             singleLine = true,

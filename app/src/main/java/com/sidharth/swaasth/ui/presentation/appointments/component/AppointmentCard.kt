@@ -3,22 +3,30 @@ package com.sidharth.swaasth.ui.presentation.appointments.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,10 +36,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import coil.compose.AsyncImage
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.common.datatype.Date
 import com.sidharth.swaasth.domain.model.Appointment
+import com.sidharth.swaasth.ui.component.InputField
 import com.sidharth.swaasth.ui.theme.Blue80
 import com.sidharth.swaasth.ui.theme.Green
 import com.sidharth.swaasth.ui.theme.Grey10
@@ -44,6 +54,8 @@ fun AppointmentCard(
     upcoming: Boolean = false
 ) {
     val date = Date(appointment.timestamp)
+
+    var dialogVisible by remember { mutableStateOf(false) }
 
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -104,7 +116,11 @@ fun AppointmentCard(
                             text = "Add reviews",
                             color = Blue80,
                             fontWeight = FontWeight.Medium,
-                            modifier = Modifier.padding(end = 8.dp)
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .clickable {
+                                    dialogVisible = true
+                                }
                         )
 
                         Image(
@@ -147,6 +163,39 @@ fun AppointmentCard(
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(text = "Exit Queue")
+                }
+            }
+        }
+
+        if (dialogVisible) {
+            Dialog(
+                onDismissRequest = { dialogVisible = false }
+            ) {
+                Column(
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(12.dp))
+                        .padding(16.dp)
+                ) {
+                    InputField(
+                        outlined = true,
+                        hint = "Your Review",
+                        onValueChange = {
+
+                        }
+                    )
+
+                    Spacer(modifier = Modifier.padding(top = 16.dp))
+
+                    Button(
+                        onClick = { },
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(12.dp))
+                            .wrapContentWidth(Alignment.End)
+                    ) {
+                        Text(text = "Confirm")
+                    }
                 }
             }
         }

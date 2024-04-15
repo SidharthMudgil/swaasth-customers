@@ -297,7 +297,7 @@ private fun generatePatients(): List<Patient> {
             Patient(
                 id = "1",
                 name = "${firstNames.random()} ${lastNames.random()}",
-                status = "ETA ${Random.nextInt(5, 31)}min"
+                status = "ETA ${(it + 1) * 2}min"
             )
         )
     }
