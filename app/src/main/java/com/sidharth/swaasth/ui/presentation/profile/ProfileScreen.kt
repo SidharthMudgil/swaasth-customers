@@ -37,6 +37,7 @@ import com.sidharth.swaasth.ui.theme.White
 fun ProfileScreen(
     onMediaClick: () -> Unit,
     onEditClick: () -> Unit,
+    onHistoryClick: () -> Unit,
 ) {
     val user = DemoConstants.demoUser
 
@@ -111,7 +112,7 @@ fun ProfileScreen(
             icon = Icons.Rounded.History,
             title = "Your History"
         ) {
-
+            onHistoryClick()
         }
 
         Spacer(modifier = Modifier.padding(bottom = 8.dp))
@@ -135,5 +136,5 @@ fun ProfileScreen(
 @Preview(showBackground = true)
 @Composable
 private fun ProfileScreenPreview() {
-    ProfileScreen({}, {})
+    ProfileScreen({}, {}, {})
 }

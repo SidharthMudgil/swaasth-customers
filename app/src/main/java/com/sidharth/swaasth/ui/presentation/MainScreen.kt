@@ -68,6 +68,9 @@ fun MainScreen(
                     },
                     onEditClick = {
                         navController.navigate(ProfileGraph.Edit.route)
+                    },
+                    onHistoryClick = {
+                        navController.navigate(BottomNavItem.Appointments.route)
                     }
                 )
             }
