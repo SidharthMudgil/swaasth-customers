@@ -57,15 +57,15 @@ fun OnBoardingScreen(onClick: () -> Unit) {
         Spacer(modifier = Modifier.padding(bottom = 32.dp))
         Text(
             text = "Introducing Swaasth",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            color = Grey80,
+            fontSize = 25.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = Blue80,
             textAlign = TextAlign.Center
         )
         Text(
             text = "With Swaasth, accessing healthcare services is effortless and efficient. Take control of your health journey with the convenience of Swaasth at your fingertips.",
             fontSize = 16.sp,
-            fontWeight = FontWeight.Normal,
+            fontWeight = FontWeight.Medium,
             color = Grey80,
             textAlign = TextAlign.Center
         )
@@ -80,7 +80,7 @@ fun OnBoardingScreen(onClick: () -> Unit) {
         ) {
             Text(
                 text = "Let's Start",
-                modifier = Modifier.padding(12.dp, 8.dp)
+                modifier = Modifier.padding(12.dp, 12.dp)
             )
         }
     }
