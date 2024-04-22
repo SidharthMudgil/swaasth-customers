@@ -88,7 +88,7 @@ fun GreetingsCard(
                 }
 
                 Text(
-                    text = "Hello,\nSuhani",
+                    text = "Hello,\nMayank",
                     fontSize = 48.sp,
                     color = White,
                     fontWeight = FontWeight.ExtraBold
