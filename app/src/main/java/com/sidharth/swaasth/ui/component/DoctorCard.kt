@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.LocalHospital
+import androidx.compose.material.icons.rounded.PinDrop
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,7 +50,9 @@ fun DoctorCard(doctor: Doctor) {
             fontWeight = FontWeight.Bold,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
-            modifier = Modifier.widthIn(max = 300.dp).padding(top = 8.dp)
+            modifier = Modifier
+                .widthIn(max = 300.dp)
+                .padding(top = 8.dp)
         )
 
         Row(
@@ -64,7 +67,7 @@ fun DoctorCard(doctor: Doctor) {
             )
 
             Text(
-                text = doctor.workplace,
+                text = doctor.speciality,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Medium,
                 overflow = TextOverflow.Ellipsis,
@@ -73,13 +76,24 @@ fun DoctorCard(doctor: Doctor) {
             )
         }
 
-        Text(
-            text = "06:00 AM to 09:00 PM",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Medium,
-            overflow = TextOverflow.Ellipsis,
-            maxLines = 1
-        )
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.Rounded.PinDrop,
+                contentDescription = null,
+                modifier = Modifier.size(22.dp),
+                tint = Blue80,
+            )
+
+            Text(
+                text = doctor.workplace,
+                fontSize = 18.sp,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1
+            )
+        }
     }
 }
 

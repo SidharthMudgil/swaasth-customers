@@ -95,7 +95,7 @@ fun GreetingsCard(
                 )
 
                 InputField(
-                    hint = "Search Doctors",
+                    hint = "Search Doctors, Clinic, Hospital",
                     onValueChange = {
 
                     }

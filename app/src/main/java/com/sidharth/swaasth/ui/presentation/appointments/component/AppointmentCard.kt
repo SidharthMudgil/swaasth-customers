@@ -145,7 +145,9 @@ fun AppointmentCard(
             ) {
                 OutlinedButton(
                     shape = RoundedCornerShape(12.dp),
-                    onClick = {},
+                    onClick = {
+                        dialogVisible = true
+                    },
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(text = "Cancel")
@@ -159,7 +161,9 @@ fun AppointmentCard(
 
                 Button(
                     shape = RoundedCornerShape(12.dp),
-                    onClick = {},
+                    onClick = {
+                        dialogVisible = true
+                    },
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(text = "Exit Queue")
@@ -178,18 +182,24 @@ fun AppointmentCard(
                         .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(12.dp))
                         .padding(16.dp)
                 ) {
-                    InputField(
-                        outlined = true,
-                        hint = "Your Review",
-                        onValueChange = {
+                    if (upcoming) {
+                        Text("Are you sure you want to cancel this appointment")
+                    } else {
+                        InputField(
+                            outlined = true,
+                            hint = "Your Review",
+                            onValueChange = {
 
-                        }
-                    )
+                            }
+                        )
+                    }
 
                     Spacer(modifier = Modifier.padding(top = 16.dp))
 
                     Button(
-                        onClick = { },
+                        onClick = {
+                            dialogVisible = false
+                        },
                         modifier = Modifier
                             .clip(RoundedCornerShape(12.dp))
                             .wrapContentWidth(Alignment.End)

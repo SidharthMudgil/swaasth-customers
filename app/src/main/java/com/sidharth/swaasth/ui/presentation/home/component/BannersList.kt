@@ -13,6 +13,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -28,6 +29,8 @@ import com.sidharth.swaasth.ui.theme.Blue80
 import com.tbuonomo.viewpagerdotsindicator.compose.DotsIndicator
 import com.tbuonomo.viewpagerdotsindicator.compose.model.DotGraphic
 import com.tbuonomo.viewpagerdotsindicator.compose.type.SpringIndicatorType
+import kotlinx.coroutines.time.delay
+import java.time.Duration
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -79,6 +82,11 @@ fun BannersList() {
             pagerState = pagerState
         )
     }
+
+    LaunchedEffect(key1 = pagerState.currentPage, block = {
+        delay(Duration.ofSeconds(1))
+        pagerState.scrollToPage((pagerState.currentPage + 1) % pageCount)
+    })
 }
 
 

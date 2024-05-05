@@ -35,6 +35,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -67,6 +68,8 @@ fun AppointmentScreen(
 
     val datePickerState = rememberDatePickerState()
     var showDatePicker by remember { mutableStateOf(false) }
+
+    var selected by remember { mutableLongStateOf(doctor.availableDaysOfMonth[0]) }
 
     Scaffold {
         Column(
@@ -150,7 +153,9 @@ fun AppointmentScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(doctor.availableDaysOfMonth) { timestamp ->
-                    DateCard(timestamp)
+                    DateCard(timestamp, selected == timestamp) {
+                        selected = timestamp
+                    }
                 }
             }
 
