@@ -52,6 +52,9 @@ fun MainScreen(
                     },
                     onDoctorClick = {
                         navController.navigate(HomeGraph.Appointment.route)
+                    },
+                    onSeeAllClick = {
+                        navController.navigate(HomeGraph.NearbyDoctors.route)
                     }
                 )
             }

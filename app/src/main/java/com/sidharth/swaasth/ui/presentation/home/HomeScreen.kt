@@ -19,6 +19,7 @@ fun HomeScreen(
     onQrClick: () -> Unit,
     onNotificationClick: () -> Unit,
     onDoctorClick: () -> Unit,
+    onSeeAllClick: () -> Unit
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -37,7 +38,7 @@ fun HomeScreen(
             SpecialitiesList()
         }
         item {
-            NearbyDoctorsList(onDoctorClick)
+            NearbyDoctorsList(onDoctorClick, onSeeAllClick)
         }
     }
 }
@@ -45,5 +46,5 @@ fun HomeScreen(
 @Preview(showBackground = true)
 @Composable
 private fun HomeScreenPreview() {
-    HomeScreen({}, {}, {})
+    HomeScreen({}, {}, {}, {})
 }

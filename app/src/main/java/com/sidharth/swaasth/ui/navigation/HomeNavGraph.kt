@@ -7,6 +7,7 @@ import androidx.navigation.navigation
 import com.sidharth.swaasth.common.constant.DemoConstants
 import com.sidharth.swaasth.ui.presentation.appointment.AppointmentScreen
 import com.sidharth.swaasth.ui.presentation.appointment.PatientDetailsScreen
+import com.sidharth.swaasth.ui.presentation.home.NearbyDoctorsScreen
 import com.sidharth.swaasth.ui.presentation.notification.NotificationsScreen
 import com.sidharth.swaasth.ui.presentation.payment.PaymentMethodScreen
 
@@ -25,6 +26,13 @@ fun NavGraphBuilder.homeNavGraph(
 
         }
 
+        composable(HomeGraph.NearbyDoctors.route) {
+            NearbyDoctorsScreen(
+                onBackClick = { navController.popBackStack() },
+                onAppointmentClick = { navController.navigate(HomeGraph.Appointment.route) }
+            )
+        }
+
         composable(HomeGraph.Appointment.route) {
             AppointmentScreen(
                 DemoConstants.demoDoctors[0],
@@ -36,7 +44,6 @@ fun NavGraphBuilder.homeNavGraph(
                 }
             )
         }
-
 
 
         composable(HomeGraph.PatientDetails.route) {
@@ -69,4 +76,5 @@ sealed class HomeGraph(val route: String) {
     data object QrScanner : HomeGraph("QR_SCANNER")
     data object PatientDetails : HomeGraph("PATIENT_DETAILS")
     data object PaymentMethod : HomeGraph("PAYMENT_METHOD")
+    data object NearbyDoctors : HomeGraph("NEARBY_DOCTORS")
 }

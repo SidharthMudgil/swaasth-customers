@@ -1,8 +1,10 @@
 package com.sidharth.swaasth.ui.presentation.home.component
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -45,7 +47,8 @@ import com.sidharth.swaasth.ui.theme.White
 
 @Composable
 fun NearbyDoctorsList(
-    onDoctorClick: () -> Unit
+    onDoctorClick: () -> Unit,
+    onSeeAllClick: () -> Unit
 ) {
     val doctors = DemoConstants.demoDoctors
 
@@ -67,27 +70,31 @@ fun NearbyDoctorsList(
             Text(
                 text = "Doctors Near You",
                 fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
             )
 
             Text(
                 text = "See all",
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.clickable {
+                    onSeeAllClick()
+                }
             )
         }
 
         LazyColumn(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.heightIn(max = 1000.dp)
+            modifier = Modifier.heightIn(max = 500.dp)
         ) {
-            items(doctors) { doctor ->
+            items(doctors.take(3)) { doctor ->
                 DoctorCard(doctor, onDoctorClick)
             }
         }
     }
 }
 
+@SuppressLint("DefaultLocale")
 @Composable
 fun DoctorCard(
     doctor: Doctor,
@@ -176,7 +183,7 @@ private fun DoctorCardPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun NearbyDoctorsListPreview() {
-    NearbyDoctorsList {
+    NearbyDoctorsList({}) {
         
     }
 }
